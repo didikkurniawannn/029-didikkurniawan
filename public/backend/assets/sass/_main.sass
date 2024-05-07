@@ -1,0 +1,350 @@
+@font-face
+  font-family: "Poppins"
+  font-weight: 300
+  src: url("fonts/Poppins-Regular.woff")
+
+@font-face
+  font-family: "Poppins"
+  font-weight: 400
+  src: url("fonts/Poppins-Medium.woff")
+
+@font-face
+  font-family: "Poppins"
+  font-weight: 600
+  src: url("fonts/Poppins-SemiBold.woff")
+
+@font-face
+  font-family: "Poppins"
+  font-weight: 700
+  src: url("fonts/Poppins-Bold.woff")
+
+@font-face
+  font-family: "Inter"
+  font-weight: 300
+  src: url("fonts/Inter-Light.woff")
+
+@font-face
+  font-family: "Inter"
+  font-weight: 400
+  src: url("fonts/Inter-Regular.woff")
+
+@font-face
+  font-family: "Inter"
+  font-weight: 700
+  src: url("fonts/Inter-Bold.woff")
+
+body
+  &.custom-layout-1
+    .topbar
+      width: calc(100% - 240px)
+      right: 0px
+      .navbar
+        .navbar-header
+          position: absolute
+          left: -240px
+          width: 220px
+          height: 62px
+          margin: 10px 10px 0px 10px
+          border-radius: 10px
+          box-shadow: 2px 0px 15px rgba(23, 58, 134, .15)
+    .left-sidebar
+      padding-top: 0px
+      margin-top: 80px
+      border-radius: 10px
+      height: calc(100% - 90px)
+    .page-wrapper
+      margin-left: 240px
+      .container-fluid
+        .page-titles
+          padding: 13px 10px 50px
+          border-radius: 0px 0px 10px 10px
+          h4
+            color: #FFF
+          .breadcrumb
+            .breadcrumb-item
+              color: #FFF
+              a
+                color: #fff
+              &.active
+                color: #fff
+                font-weight: 700
+          + div, + form
+            position: relative
+            margin-top: -60px
+        .card
+          border-radius: 10px
+          box-shadow: 0px 2px 15px rgba(23, 58, 134, 0.15)
+          .card-header
+            border-radius: 10px 10px 0px 0px
+        .card-group
+          box-shadow: 0px 2px 15px rgba(23, 58, 134, 0.15)
+          .card
+            border-radius: 0px
+            box-shadow: none
+            &:first-child
+              border-radius: 10px 0px 0px 10px
+            &:last-child
+              border-radius: 0px 10px 10px 0px
+    .footer
+      margin-left: 240px
+      border-radius: 10px 10px 0px 0px
+      color: #FFF !important
+    &.mini-sidebar
+      .topbar
+        width: calc(100% - 90px)
+        .navbar
+          .navbar-header
+            left: -80px
+            width: 70px
+            margin: 10px 10px 0px 0px
+      .page-wrapper
+        margin-left: 90px
+      .footer
+        margin-left: 90px
+  &.custom-layout-2
+    .left-sidebar
+      .sidebar-nav
+        ul
+          li
+            a
+              i
+                display: none !important
+    .page-wrapper
+      padding-top: 85px
+      .page-titles
+        display: none
+
+.topbar
+  height: 68px
+  .navbar
+    .navbar-header
+      position: relative
+      top: -2px
+  nav.sidebar-nav
+    ul#sidebarnav
+      li
+        a
+          padding: 10px 5px 10px 15px
+          font-size: 13px
+
+div.input-group
+  input#pencarian
+    border-right-width: 0px
+    + div.input-group-append
+      span.input-group-text
+        background-color: transparent
+        border-left-width: 0px
+        
+table
+  &.table-striped
+    td, th
+      padding: 8px 15px
+    thead, tfoot
+      tr
+        th
+          font-weight: 700
+          border-top: 1px solid #AAA
+          border-bottom: 1px solid #AAA
+  &.table-centered
+    td, th
+      text-align: center
+		
+.tabulator.table-striped
+  .tabulator-col-content, .tabulator-cell
+    padding: 8px 15px
+  .tabulator-header
+    .tabulator-headers
+      .tabulator-col
+        font-weight: 700
+        border-top: 1px solid #AAA
+        border-bottom: 1px solid #AAA
+
+.tabulator-cell
+  .dropdown-menu
+    position: fixed !important
+    // top: auto !important
+
+.select2-container
+  height: 38px
+  .select2-selection
+    height: 35px
+    display: flex
+    align-items: center
+    border: 1px solid #ced4da
+    color: #212529
+    font-weight: 400
+    border-radius: 6px
+    .select2-selection__rendered
+      padding-left: .75rem
+    &.select2-selection--multiple
+      .select2-selection__rendered
+        margin-bottom: 0px !important
+        .select2-selection__choice
+          color: #212529
+    .select2-selection__arrow
+      top: 4px
+      right: 4px
+  .select2-search--inline
+    .select2-search__field
+      font-size: .8rem
+      font-family: "Inter"
+  .select2-dropdown
+    z-index: 1055
+			
+.select2-multiple
+  + .select2-container
+    min-height: 38px
+    height: auto
+    .select2-selection
+      min-height: 35px
+      height: auto
+
+.swal2-container
+  .swal2-popup
+    width: auto
+    padding: 0 1.25rem 1.25em
+    font-size: .8rem
+    .swal2-icon
+      width: 4rem
+      height: 4rem
+      margin: 1.5rem auto .2rem
+    .swal2-title
+      font-size: 1.125rem
+      font-weight: 400
+    .swal2-actions
+      button
+        padding: 0.375rem 0.75rem
+        border-radius: 0.375rem
+        font-size: .8rem
+
+#toast-container
+  > div
+    opacity: 1
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3)
+    border-radius: .375rem
+    border: 0 !important
+    transition: all .3s
+    &:hover
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.6)
+    &.toast-info
+      .toast-message
+        font-size: .8rem
+
+.datepicker
+  padding: 0.375rem 0.75rem
+  border-radius: 0.375rem
+  z-index: 1065 !important
+
+.perfect-scroll
+  position: relative
+
+.inbox-center
+  .mailbox-item
+    cursor: pointer
+    &.unread
+      td
+        background-color: #edf1f5
+        font-weight: 600 !important
+    &.active
+      td
+        background-color: #F8F9DF
+
+// CUSTOM INPUT FILE DRAG & DROP
+.file-drag-drop
+  opacity: 0
+  position: relative
+  z-index: 10
+  cursor: pointer
+  &:hover
+    + .drag-drop-label
+      border-color: #888
+
+.drag-drop-label
+  width: calc(100% -  1.6rem)
+  display: block
+  padding: 6px 0.75rem
+  border: 1px solid #CCC
+  border-radius: .375rem
+  position: absolute
+  top: 0px
+  z-index: 0
+  cursor: pointer
+  transition: border .2s
+  color: #888
+  &::after
+    content: attr(data-label)
+    font-size: .8rem
+    font-weight: 400
+    font-style: italic
+    cursor: pointer
+    display: block
+    max-width: 90%
+    white-space: nowrap
+    overflow: hidden
+    text-overflow: ellipsis
+
+.was-validated
+  select:invalid
+    + .select2-container
+      .select2-selection
+        border: 1px solid #DC3545
+        background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e")
+        background-repeat: no-repeat
+        background-position: right calc(0.375em + 0.1875rem) center
+        background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem)
+  select:valid
+    + .select2-container
+      .select2-selection
+        border: 1px solid #198754
+        background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e")
+        background-repeat: no-repeat
+        background-position: right calc(0.375em + 0.1875rem) center
+        background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem)
+  .file-drag-drop:invalid
+    + .drag-drop-label
+      border: 1px solid #DC3545
+      background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 12 12' width='12' height='12' fill='none' stroke='%23dc3545'%3e%3ccircle cx='6' cy='6' r='4.5'/%3e%3cpath stroke-linejoin='round' d='M5.8 3.6h.4L6 6.5z'/%3e%3ccircle cx='6' cy='8.2' r='.6' fill='%23dc3545' stroke='none'/%3e%3c/svg%3e")
+      background-repeat: no-repeat
+      background-position: right calc(0.375em + 0.1875rem) center
+      background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem)
+  .file-drag-drop:valid
+    + .drag-drop-label
+      border: 1px solid #198754
+      background: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 8 8'%3e%3cpath fill='%23198754' d='M2.3 6.73.6 4.53c-.4-1.04.46-1.4 1.1-.8l1.1 1.4 3.4-3.8c.6-.63 1.6-.27 1.2.7l-4 4.6c-.43.5-.8.4-1.1.1z'/%3e%3c/svg%3e")
+      background-repeat: no-repeat
+      background-position: right calc(0.375em + 0.1875rem) center
+      background-size: calc(0.75em + 0.375rem) calc(0.75em + 0.375rem)
+        
+button
+  &:disabled
+    background-color: #aaa !important
+    border-color: #aaa !important
+    
+footer.footer
+  font-size: 13px
+
+[data-bs-theme=dark]
+  .light-logo.logo-text
+    filter: invert(100%)
+  .select2-container
+    .select2-selection
+      background-color: var(--bs-body-bg)
+      color: var(--bs-body-color)
+      border: var(--bs-border-width) solid var(--bs-border-color)
+      .select2-selection__rendered
+        color: var(--bs-body-color)
+        .select2-selection__placeholder
+          color: var(--bs-secondary-color)
+    .select2-dropdown
+      background-color: var(--bs-body-bg)
+      border: var(--bs-border-width) solid var(--bs-border-color)
+      color: var(--bs-body-color)
+      .select2-search
+        .select2-search__field
+          color: var(--bs-body-color)
+    .select2-results__option--selected
+      background-color: var(--bs-secondary-bg)
+  .swal2-container
+    .swal2-popup
+      background-color: var(--bs-secondary-bg)
+      color: var(--bs-body-color)

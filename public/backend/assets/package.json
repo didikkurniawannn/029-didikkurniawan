@@ -1,0 +1,22 @@
+{
+  "name": "ci4-mst-package",
+  "version": "1.0.0",
+  "description": "Additional Packages For CI4 MST Template",
+  "private": "true",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Agung Sulaksana <sulaksana34@gmail.com>",
+  "license": "ISC",
+  "dependencies": {
+    "bootstrap-datepicker": "^1.10.0",
+    "chart.js": "^4.3.0",
+    "ckeditor4": "^4.21.0",
+    "datatables.net-bs5": "^1.13.4",
+    "datatables.net-responsive-bs5": "^2.4.1",
+    "jquery": "^3.7.0",
+    "select2": "^4.1.0-rc.0",
+    "sweetalert2": "^11.7.12",
+    "toastr": "^2.1.4"
+  }
+}

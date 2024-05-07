@@ -1,0 +1,17 @@
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "node",
+    "outDir": "ts-types",
+    "allowJs": true,
+    "checkJs": true,
+    "strict": true,
+    "declaration": true,
+    "types": ["cypress"],
+    "emitDeclarationOnly": true
+  },
+
+  "include": ["src/**/*", "cypress/**/*"]
+}
