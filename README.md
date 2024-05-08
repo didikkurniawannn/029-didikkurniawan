@@ -14,13 +14,13 @@ Grup : Group 4 Full Stack Web Programming
 - Deskripsi : Aplikasi dibuat berkaitan dengan Management Rapat yang akan digunakan untuk Pemerintah Kabupaten Bandung. dengan aplikasi ini diharapkan event yang dibuat dapat mudah dipublikasi sehingga peserta rapat dapat mempelajari apa yang akan di akan dibahas pada rapat tersebut.
 - Tujuan    : Mempermudah dalam dokumentasi rapat dari perencanaan rapat hingga hasil rapat. sehingga hirarki dalam penentuan sebuah kebijakan dapat di telusuri secara jelas.
 - Fitur Utama :
-⋅⋅* Login.
-⋅⋅* Registrasi Rapat.
-⋅⋅* Dashboard.
-⋅⋅* Perencanaan Rapat.
-⋅⋅* Hasil Rapat.
-⋅⋅* Dokumentasi Rapat.
-..* Presensi Rapat.
+⋅⋅1. Login.
+⋅⋅2. Registrasi Rapat.
+⋅⋅3. Dashboard.
+⋅⋅4. Perencanaan Rapat.
+⋅⋅5. Hasil Rapat.
+⋅⋅6. Dokumentasi Rapat.
+⋅⋅7. Presensi Rapat.
 
 # Contribution
 
@@ -53,7 +53,7 @@ Sebelum cloning/forking project ini, pastikan anda sudah menginstal tools beriku
 
 [//]: contributor-faces
 
-<a href="https://github.com/didikkurniawannn"><img src="https://avatars.githubusercontent.com/u/169165967?v=4 title="Julia Undeutsch" width="80" height="80"></a>
+<a href="https://github.com/didikkurniawannn"><img src="https://avatars.githubusercontent.com/u/169165967?v=4" title="Didik Kurniawan" width="80" height="80"></a>
 
 [//]: contributor-faces
 
