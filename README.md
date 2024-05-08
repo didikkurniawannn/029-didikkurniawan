@@ -11,7 +11,7 @@ Deskripsi : Tujuan aplikasi dibuat untuk mempermudah dalam dokumentasi rapat dar
 - Livewire
 - MySQL
 
-#### Cara menggunakan
+### Cara menggunakan
 1. Clone repository
 2. Install dependencies
 3. Run migrations
@@ -19,7 +19,7 @@ Deskripsi : Tujuan aplikasi dibuat untuk mempermudah dalam dokumentasi rapat dar
 5. Run server
 
 
-##### Guideline
+### Guideline
 build: Perubahan yang memengaruhi sistem build atau dependensi eksternal
 env: Perubahan pada file konfigurasi dan skrip CI kami 
 docs: perubahan Dokumentasi
