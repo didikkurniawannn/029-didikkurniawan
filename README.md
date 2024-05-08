@@ -1,7 +1,7 @@
 # Indentitas
-No   : 029
-Nama : Didik Kurniawan
-Grup : Group 4 Full Stack Web Programming
+- No   : 029
+- Nama : Didik Kurniawan
+- Grup : Group 4 Full Stack Web Programming
 
 #### Sosial Media
 - [LinkedIn](https://linkedin.com/in/didikkurniawannn)
