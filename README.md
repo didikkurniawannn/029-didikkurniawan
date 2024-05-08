@@ -14,13 +14,13 @@ Grup : Group 4 Full Stack Web Programming
 2. Deskripsi : Aplikasi dibuat berkaitan dengan Management Rapat yang akan digunakan untuk Pemerintah Kabupaten Bandung. dengan aplikasi ini diharapkan event yang dibuat dapat mudah dipublikasi sehingga peserta rapat dapat mempelajari apa yang akan di akan dibahas pada rapat tersebut.
 3. Tujuan    : Mempermudah dalam dokumentasi rapat dari perencanaan rapat hingga hasil rapat. sehingga hirarki dalam penentuan sebuah kebijakan dapat di telusuri secara jelas.
 4. Fitur Utama :
-⋅⋅* Login.
-⋅⋅* Registrasi Rapat.
-⋅⋅* Dashboard.
-⋅⋅* Perencanaan Rapat.
-⋅⋅* Hasil Rapat.
-⋅⋅* Dokumentasi Rapat.
-⋅⋅* Presensi Rapat.
+    - Login.
+    - Registrasi Rapat.
+    - Dashboard.
+    - Perencanaan Rapat.
+    - Hasil Rapat.
+    - Dokumentasi Rapat.
+    - Presensi Rapat.
 
 # Contribution
 
