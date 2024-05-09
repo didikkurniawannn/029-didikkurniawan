@@ -22,7 +22,7 @@ return new class extends Migration
             $table->string('email_verified_at', 255)->nullable();
             $table->string('avatar', 255)->nullable();
             $table->integer('remember_token')->nullable();
-            $table->boolean('status_active');
+            $table->boolean('is_active');
             $table->dateTime('last_login_at')->nullable();
             $table->dateTime('created_at')->nullable();
             $table->integer('created_id')->nullable();

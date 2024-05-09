@@ -22,6 +22,7 @@ class DatabaseSeeder extends Seeder
             VillageSeeder::class,
             ProvinceSeeder::class,
             RefSettingSeeder::class,
+            UsersTableSeeder::class,
         ]);
     }
 }
