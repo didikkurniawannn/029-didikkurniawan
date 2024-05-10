@@ -2,6 +2,7 @@
 use App\Models\RefMenu;
 use App\Models\RefSetting;
 use App\Models\RefAksesMenu;
+use App\Models\User;
 use App\Models\Activity;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -145,8 +146,8 @@ function setIconMenu($id){
 }
 
 function setActivity($description)
-            {
-                $model = new Activity([
+{
+    $model = new Activity([
                     'subject_id' => Auth::user()->id,
                     'causer_id' => Auth::user()->id,
                     'username' => Auth::user()->username,
@@ -381,6 +382,14 @@ function setActivity($description)
                 }
                 return $hasil . " Rupiah";
             }
-            
+
+            function getRoleAksesLogin()
+            {                               
+                $data = User::where('id',Auth::user()->id)->count();
+                if($data>0){
+                    $user = User::where('id',Auth::user()->id)->first();
+                    return $user->role_id;
+                }
+            }
             
             
