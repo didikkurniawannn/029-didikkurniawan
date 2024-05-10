@@ -13,10 +13,9 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'id' => 1,
             'instansi_id' => 0,
-            'first_name' => 'Didik',
-            'last_name' => 'Kurniawan',
+            'name' => 'Didik Kurniawan',
             'username' => 'superadmin',
-            'email' => 'admin@bandungkab.go.id',
+            'email' => 'didikkurniawannn@gmail.com',
             'password' => '$2y$10$5ro1KMsC7mHFV/42nAQ/6uge.EIZE5g4qjv6PKy5oD1JdGm5tqi0e', // asumsi sudah di-hash
             'remember_token' => 0,
             'created_at' => '2022-05-19 07:10:30',
