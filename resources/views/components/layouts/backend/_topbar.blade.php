@@ -307,7 +307,7 @@
                 <span class="/metronic8/demo63/../demo63/pages/user-profile/overview.html"
                     class="text-gray-500 fs-8 fw-bold">Hello</span>
                 <a href="pages/user-profile/overview.html"
-                    class="text-gray-800 text-hover-primary fs-7 fw-bold d-block">{{Auth::user()->username;}}</a>
+                    class="text-gray-800 text-hover-primary fs-7 fw-bold d-block">{{$profile['username']}}</a>
             </div>
             <!--end:Info-->
 
@@ -336,11 +336,11 @@
                     <!--begin::Username-->
                     <div class="d-flex flex-column">
                         <div class="fw-bold d-flex align-items-center fs-5">
-                            {{Auth::user()->username;}} <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2"></span>
+                            {{$profile['username']}} <span class="badge badge-light-success fw-bold fs-8 px-2 py-1 ms-2"></span>
                         </div>
 
                         <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">
-                            {{Auth::user()->nama;}} </a>
+                            {{$profile['name']}} </a>
                     </div>
                     <!--end::Username-->
                 </div>
@@ -431,7 +431,9 @@
             <!--end::Menu item-->
             <!--begin::Menu item-->
             <div class="menu-item px-5">
-                <livewire:auth.logout />
+                <a href="{{ route('login') }}" class="menu-link px-5">
+                    Logout
+                </a>
             </div>
             <!--end::Menu item-->
         </div>

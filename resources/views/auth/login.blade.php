@@ -12,10 +12,10 @@
           <!--begin::Wrapper-->
           <div class="w-xl-500px p-10">
 
-            <form class="form w-100" method="POST" action="{{ route('signin') }}">
+            {{-- <form class="form w-100" method="GET" action="{{ route('dashboard') }}"> --}}
                 @csrf
                 <div class="text-center mb-11">
-                    <img src="{{ Storage::disk('public')->url(getApp()->logo_url) }}" class="max-h-75px" height="75px" alt="{{ getApp()->name }}" />
+                    <img src="{{ Storage::disk('public')->url('logo/green_logo.png') }}" class="max-h-75px" height="75px" alt="{{ $data['title'] }}" />
                     <h1 class="text-gray-900 fw-bolder mb-3">@yield('title')</h1>
                 </div>
     
@@ -39,16 +39,23 @@
                     @enderror
                 </div>
     
-                {{-- <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
+                <!--begin::Wrapper-->
+                <div class="d-flex flex-stack flex-wrap gap-3 fs-base fw-semibold mb-8">
+                    <!--begin::Link-->
+                    <a href="{{ route('register') }}" class="link-success">
+                        Belum Punya Akun ?
+                    </a>
                     <a href="{{ route('forgot') }}" class="link-success">Lupa Password?</a>
-                </div> --}}
-    
-                <div class="d-grid mb-10">
-                    <button type="submit" class="btn btn-success">
-                        Sign In
-                    </button>
+                    
+                    <!--end::Link-->
                 </div>
-            </form>
+                <!--end::Wrapper-->
+                <div class="d-grid mb-10">
+                    <a href="{{ route('dashboard') }}" class="btn btn-success">
+                        Sign In
+                    </a>
+                </div>
+            {{-- </form> --}}
           </div>
           <!--end::Wrapper-->
       </div>
@@ -70,13 +77,13 @@
 
           <!--begin::Title-->
           <h1 class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7">
-            {{getAppName()}}
+            Sistem Informasi Management Rapat
           </h1>
           <!--end::Title-->
 
           <!--begin::Text-->
           <div class="d-none d-lg-block text-white fs-base text-center">
-            {{getDescriptionName()}}
+            Mr - Versi 1.0 - Hak Cipta © 2024 Didik Kurniawan
           </div>
           <!--end::Text-->
       </div>

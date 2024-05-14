@@ -6,12 +6,13 @@
                     <!--begin::Header-->
                     <div class="app-sidebar-header d-none d-lg-flex px-6 pt-8 pb-4" id="kt_app_sidebar_header">
                         <!--begin::Toggle-->
-                        <div type="button" data-kt-element="selected"
-                            class="btn btn-outline btn-custom btn-flex w-100" data-kt-menu-trigger="click"
-                            data-kt-menu-placement="bottom-start" data-kt-menu-offset="0px, -1px">
+                        <div type="button" data-kt-element="selected" class="btn btn-outline btn-custom btn-flex w-100"
+                            data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start"
+                            data-kt-menu-offset="0px, -1px">
                             <!--begin::Logo-->
                             <span class="d-flex flex-center flex-shrink-0 w-40px me-3">
-                                <img alt="Logo" src="{{ Storage::disk('public')->url(getApp()->favicon_url) }}"
+                                <img alt="Logo"
+                                    src="{{ Storage::disk('public')->url('logo/white_icon.png') }}"
                                     data-kt-element="logo" class="h-30px">
                             </span>
                             <!--end::Logo-->
@@ -19,16 +20,11 @@
                             <!--begin::Info-->
                             <span class="d-flex flex-column align-items-start flex-grow-1">
                                 <span class="fs-5 fw-bold text-white text-uppercase" data-kt-element="title">
-                                    Management Resiko
+                                    MANAGEMENT RAPAT
                                 </span>
                             </span>
                             <!--end::Info-->
 
-                            <!--begin::Arrows-->
-                            <!-- <span class="d-flex flex-column me-n4">
-                                <i class="ki-outline ki-up fs-2 text-gray-700"></i><i
-                                    class="ki-outline ki-down fs-2 text-gray-700"></i></span> -->
-                            <!--end::Arrows-->
                         </div>
                         <!--end::Toggle-->
 
@@ -38,68 +34,216 @@
                         <div id="kt_app_sidebar_menu_wrapper" class="hover-scroll-y" data-kt-scroll="true"
                             data-kt-scroll-height="auto"
                             data-kt-scroll-dependencies="#kt_app_sidebar_header, #kt_app_sidebar_footer"
-                            data-kt-scroll-offset="20px">
+                            data-kt-scroll-offset="20px" style="height: 252px;">
                             <div class="app-sidebar-navs-default px-5 mb-10">
                                 <div id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false"
                                     class="menu menu-column menu-rounded menu-sub-indention">
                                     <div class="separator mb-4 mx-4"></div>
                                     <!--begin:Menu item-->
-                                    @foreach (menu(getRoleAksesLogin()) as $item)
-                                    @if (cekChild($item->menu->id))
+                                    <a class="menu-item menu-sidebar menu-accordion"
+                                        href="#">
+                                        <span class="menu-link">
+                                            <span class="menu-icon"><i class="ki-outline ki-home-2 fs-2"></i></span>
+                                            <span class="menu-title">Dashboard</span>
+                                        </span></a>
                                     <div data-kt-menu-trigger="click" class="menu-item menu-sidebar menu-accordion">
                                         <span class="menu-link">
-                                            <span class="menu-icon"><i
-                                                    class="ki-outline {{ $item->menu->icon }} fs-2"></i></span>
-                                            <span class="menu-title">{{ $item->menu->menu }}</span>
+                                            <span class="menu-icon"><i class="ki-outline ki-document fs-2"></i></span>
+                                            <span class="menu-title">Rapat</span>
                                             <span class="menu-arrow"></span></span>
 
-                                        @foreach (menuChild($item->menu->id, getRole()) as $value)
 
-                                        <div class="menu-sub menu-sub-accordion">
-                                            @if (cekChild($value->menu->id))
-                                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
-                                                <span class="menu-link">
-                                                    <span class="menu-icon"><i
-                                                            class="ki-outline {{ $value->menu->icon }} fs-2"></i></span>
-                                                    <span class="menu-title">{{ $value->menu->menu }}</span>
-                                                    <span class="menu-arrow"></span>
-                                                </span>
-
-                                                @foreach (menuChild($value->menu->id, getRole()) as $values)
-                                                <div class="menu-sub menu-sub-accordion">
-                                                    <div class="menu-item menu-sidebar">
-                                                        <a class="menu-link" href="{{ url($values->menu->url) }}">
-                                                            <span class="menu-bullet">
-                                                                <span class="bullet bullet-dot"></span>
-                                                            </span>
-                                                            <span class="menu-title">{{ $values->menu->menu}}</span>
-                                                        </a>
-                                                    </div>
-                                                </div>
-                                                @endforeach
-                                            </div>
-                                            @else
+                                        <div class="menu-sub menu-sub-accordion"
+                                            style="display: none; overflow: hidden;" kt-hidden-height="40">
                                             <div class="menu-item menu-sidebar">
-                                                <a class="menu-link" href="{{ url($value->menu->url) }}">
+                                                <a class="menu-link"
+                                                    href="#/pertanyaan/index">
                                                     <span class="menu-bullet">
                                                         <span class="bullet bullet-dot"></span>
                                                     </span>
-                                                    <span class="menu-title">{{ $value->menu->menu}}</span>
+                                                    <span class="menu-title">Kelola Rapat</span>
                                                 </a>
                                             </div>
-                                            @endif
                                         </div>
-                                        @endforeach
+
+                                        <div class="menu-sub menu-sub-accordion">
+                                            <div class="menu-item menu-sidebar">
+                                                <a class="menu-link"
+                                                    href="#">
+                                                    <span class="menu-bullet">
+                                                        <span class="bullet bullet-dot"></span>
+                                                    </span>
+                                                    <span class="menu-title">Kehadiran Rapat</span>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="menu-sub menu-sub-accordion">
+                                            <div class="menu-item menu-sidebar">
+                                                <a class="menu-link"
+                                                    href="#">
+                                                    <span class="menu-bullet">
+                                                        <span class="bullet bullet-dot"></span>
+                                                    </span>
+                                                    <span class="menu-title">Hasil Rapat</span>
+                                                </a>
+                                            </div>
+                                        </div>
                                     </div>
-                                    @else
-                                    <a class="menu-item menu-sidebar menu-accordion" href="{{ url($item->menu->url) }}">
+                                    <div data-kt-menu-trigger="click" class="menu-item menu-sidebar menu-accordion">
                                         <span class="menu-link">
                                             <span class="menu-icon"><i
-                                                    class="ki-outline {{ $item->menu->icon }} fs-2"></i></span>
-                                            <span class="menu-title">{{ $item->menu->menu}}</span>
-                                    </a>
-                                    @endif
-                                    @endforeach
+                                                    class="ki-outline ki-abstract-13 fs-2"></i></span>
+                                            <span class="menu-title">Referensi</span>
+                                            <span class="menu-arrow"></span></span>
+
+
+                                        <div class="menu-sub menu-sub-accordion">
+                                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                                <span class="menu-link">
+                                                    <span class="menu-icon"><i
+                                                            class="ki-outline ki-right fs-2"></i></span>
+                                                    <span class="menu-title">Wilayah</span>
+                                                    <span class="menu-arrow"></span>
+                                                </span>
+
+                                                <div class="menu-sub menu-sub-accordion">
+                                                    <div class="menu-item menu-sidebar">
+                                                        <a class="menu-link"
+                                                            href="#">
+                                                            <span class="menu-bullet">
+                                                                <span class="bullet bullet-dot"></span>
+                                                            </span>
+                                                            <span class="menu-title">Provinsi</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-sub menu-sub-accordion">
+                                                    <div class="menu-item menu-sidebar">
+                                                        <a class="menu-link"
+                                                            href="#">
+                                                            <span class="menu-bullet">
+                                                                <span class="bullet bullet-dot"></span>
+                                                            </span>
+                                                            <span class="menu-title">Kabupaten/Kota</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-sub menu-sub-accordion">
+                                                    <div class="menu-item menu-sidebar">
+                                                        <a class="menu-link"
+                                                            href="#">
+                                                            <span class="menu-bullet">
+                                                                <span class="bullet bullet-dot"></span>
+                                                            </span>
+                                                            <span class="menu-title">Kecamatan</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-sub menu-sub-accordion">
+                                                    <div class="menu-item menu-sidebar">
+                                                        <a class="menu-link"
+                                                            href="#">
+                                                            <span class="menu-bullet">
+                                                                <span class="bullet bullet-dot"></span>
+                                                            </span>
+                                                            <span class="menu-title">Desa/Kelurahan</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                        <div class="menu-sub menu-sub-accordion">
+                                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                                <span class="menu-link">
+                                                    <span class="menu-icon"><i
+                                                            class="ki-outline ki-right fs-2"></i></span>
+                                                    <span class="menu-title">Master Data</span>
+                                                    <span class="menu-arrow"></span>
+                                                </span>
+
+                                                <div class="menu-sub menu-sub-accordion">
+                                                    <div class="menu-item menu-sidebar">
+                                                        <a class="menu-link"
+                                                            href="#">
+                                                            <span class="menu-bullet">
+                                                                <span class="bullet bullet-dot"></span>
+                                                            </span>
+                                                            <span class="menu-title">Instansi</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                                <div class="menu-sub menu-sub-accordion">
+                                                    <div class="menu-item menu-sidebar">
+                                                        <a class="menu-link"
+                                                            href="#">
+                                                            <span class="menu-bullet">
+                                                                <span class="bullet bullet-dot"></span>
+                                                            </span>
+                                                            <span class="menu-title">Sasaran Rapat</span>
+                                                        </a>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div data-kt-menu-trigger="click" class="menu-item menu-sidebar menu-accordion">
+                                        <span class="menu-link">
+                                            <span class="menu-icon"><i
+                                                    class="ki-outline ki-abstract-37 fs-2"></i></span>
+                                            <span class="menu-title">Utilitas</span>
+                                            <span class="menu-arrow"></span></span>
+
+
+                                        <div class="menu-sub menu-sub-accordion">
+                                            <div class="menu-item menu-sidebar">
+                                                <a class="menu-link"
+                                                    href="#">
+                                                    <span class="menu-bullet">
+                                                        <span class="bullet bullet-dot"></span>
+                                                    </span>
+                                                    <span class="menu-title">Daftar Pengguna</span>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="menu-sub menu-sub-accordion">
+                                            <div class="menu-item menu-sidebar">
+                                                <a class="menu-link"
+                                                    href="#">
+                                                    <span class="menu-bullet">
+                                                        <span class="bullet bullet-dot"></span>
+                                                    </span>
+                                                    <span class="menu-title">Group/ Role</span>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="menu-sub menu-sub-accordion">
+                                            <div class="menu-item menu-sidebar">
+                                                <a class="menu-link"
+                                                    href="#">
+                                                    <span class="menu-bullet">
+                                                        <span class="bullet bullet-dot"></span>
+                                                    </span>
+                                                    <span class="menu-title">Daftar Modul</span>
+                                                </a>
+                                            </div>
+                                        </div>
+
+                                        <div class="menu-sub menu-sub-accordion">
+                                            <div class="menu-item menu-sidebar">
+                                                <a class="menu-link"
+                                                    href="#">
+                                                    <span class="menu-bullet">
+                                                        <span class="bullet bullet-dot"></span>
+                                                    </span>
+                                                    <span class="menu-title">Setting Situs</span>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -130,25 +274,26 @@
                 <!--end::sidebar-panel-->
 
                 @push('js')
-                <script>
-                    $(function () {
-                        // Mendapatkan URL saat ini
-                        var currentUrl = window.location.href;
+                    <script>
+                        $(function () {
+                            // Mendapatkan URL saat ini
+                            var currentUrl = window.location.href;
 
-                        // Mencari elemen menu yang sesuai dengan URL saat ini
-                        var activeMenu = $('.menu-item.menu-sidebar.menu-accordion a').filter(function () {
-                            return this.href === currentUrl;
+                            // Mencari elemen menu yang sesuai dengan URL saat ini
+                            var activeMenu = $('.menu-item.menu-sidebar.menu-accordion a').filter(function () {
+                                return this.href === currentUrl;
+                            });
+
+                            // Menambahkan class "active" ke elemen menu dan semua parentnya
+                            activeMenu.addClass('active').parents('.menu-item.menu-sidebar.menu-accordion')
+                                .addClass('show');
+
+                            // Menambahkan class "hover show" pada elemen menu-sub menu-sub-accordion apabila aktif
+                            $('.menu-sub.menu-sub-accordion.active').addClass('hover show');
+
+                            // Menambahkan class "hover show" pada elemen menu-item menu-sidebar menu-accordion apabila aktif
+                            $('.menu-item.menu-sidebar.menu-accordion.active').addClass('hover show');
                         });
 
-                        // Menambahkan class "active" ke elemen menu dan semua parentnya
-                        activeMenu.addClass('active').parents('.menu-item.menu-sidebar.menu-accordion')
-                            .addClass('show');
-
-                        // Menambahkan class "hover show" pada elemen menu-sub menu-sub-accordion apabila aktif
-                        $('.menu-sub.menu-sub-accordion.active').addClass('hover show');
-
-                        // Menambahkan class "hover show" pada elemen menu-item menu-sidebar menu-accordion apabila aktif
-                        $('.menu-item.menu-sidebar.menu-accordion.active').addClass('hover show');
-                    });
-                </script>
+                    </script>
                 @endpush

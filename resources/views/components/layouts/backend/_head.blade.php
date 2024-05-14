@@ -1,9 +1,9 @@
-<meta name="title" property="og:title" content="{{getAppName()}}">
+<meta name="title" property="og:title" content="Management Rapat">
 <link rel="shortcut icon" href="{!! getAppFavicon() !!}" />
-<meta name="description" property="og:description" content="{{getDescriptionName()}}">
+<meta name="description" property="og:description" content="-">
 <meta name="author" property="og:author" content="PT Mitra Sinerji Teknoindo">
 <!-- Favicon icon -->
-<link rel="icon" type="image/ico" sizes="16x16" href="{{ Storage::disk('public')->url(getApp()->favicon_url) }}">
+<link rel="icon" type="image/ico" sizes="16x16" href="{{ Storage::disk('public')->url('favicon/favicon.ico') }}">
 <!-- Main CSS -->
 <link href="{!! asset('backend/assets/css/style.min.css') !!}" rel="stylesheet">
 <!-- select2 -->

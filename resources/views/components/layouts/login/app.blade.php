@@ -6,21 +6,11 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" property="og:title" content="{{getAppName()}}">
-    <link rel="shortcut icon" href="{!! getAppFavicon() !!}" />
-    <meta name="description" property="og:description" content="{{getDescriptionName()}}">
-    <meta name="author" property="og:author" content="{{getAppName()}}">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
-    <link href="{!! asset('backend/themes/assets/plugins/global/plugins.bundle.css') !!}" rel="stylesheet" type="text/css" />
-    <link href="{!! asset('backend/themes/assets/css/style.bundle.css') !!}" rel="stylesheet" type="text/css" />
-    @stack('css')
-    <!--end::Global Stylesheets Bundle-->
-    <script>
-        // Frame-busting to prevent site from being loaded within a frame without permission (click-jacking)
-        if (window.top != window.self) {
-        window.top.location.replace(window.self.location.href);
-        }
-    </script>
+    <meta name="title" property="og:title" content="{{ $data['title'] }}">
+    <meta name="description" property="og:description" content="{{ $data['description'] }}">
+
+    <meta name="author" property="og:author" content="Management Rapat">
+    <x-layouts.login.partials.css/>
 </head>
 <!--end::Head-->
 
@@ -58,14 +48,7 @@
 
     </div>
     <!--end::Root-->
-
-    <script>
-        var hostUrl = "{!! asset('backend/themes/assets/') !!}";        
-    </script>
-    <script src="{!! asset('backend/themes/assets/plugins/global/plugins.bundle.js') !!}"></script>
-    <script src="{!! asset('backend/themes/assets/js/scripts.bundle.js') !!}"></script>
-    <script src="{!! asset('backend/themes/assets/js/custom/authentication/sign-in/general.js') !!}"></script>
-    <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-    @stack('js')
+    <x-layouts.login.partials.js/>
 </body>
 </html>
+
