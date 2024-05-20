@@ -24,9 +24,6 @@ Route::group(['middleware' => ['auth','verified','web'],'prefix' => '', 'as' => 
     //Begin Master
     Route::prefix('master/user')->group(function () {
         Route::get('/',App\Livewire\Master\User\Index::class)->name('master.index');
-        Route::get('add',App\Livewire\Master\User\Add::class)->name('master.create');
-        Route::get('edit/{token}',App\Livewire\Master\User\Edit::class)->name('master.update');
-        Route::get('akun/{token}',App\Livewire\Master\User\Akun::class)->name('master.view');
         Route::get('profile',App\Livewire\Master\User\Profile::class)->name('master.profile');
         Route::get('password',App\Livewire\Master\User\Password::class)->name('master.password');
     });
@@ -36,6 +33,7 @@ Route::group(['middleware' => ['auth','verified','web'],'prefix' => '', 'as' => 
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('login');
 Route::get('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'index'])->name('logout');
 Route::post('/signin', [App\Http\Controllers\Auth\AuthController::class, 'signin'])->name('signin');
+Route::get('/autologin/{id}', [App\Http\Controllers\Auth\AutoLoginController::class, 'autologin'])->name('autologin');
 
 Route::get('/register', function() use ($data){
     return view('auth.register', ['data' => $data]);
