@@ -149,10 +149,6 @@ class Setting extends Component
             $model->logo_human_size = $this->logo->getSize();
             Image::load(Storage::disk('public')->path($this->logo->store('logo', 'public')))
             ->quality(10)
-            // ->blur(50)
-            // ->greyscale()
-            // ->width(100)
-            // ->height(100)
             ->save();
         }
         

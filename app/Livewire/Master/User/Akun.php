@@ -1,16 +1,13 @@
 <?php
 
-namespace App\Livewire\Master\Kepegawaian\User;
+namespace App\Livewire\Master\User;
 
 use Storage;
 use App\Models\User;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
-use Illuminate\Support\Facades\Auth;
-use Livewire\Attributes\Layout;
-
-class Password extends Component
+class Akun extends Component
 {
     use LivewireAlert;
     use WithFileUploads;
@@ -27,9 +24,9 @@ class Password extends Component
     public $avatar_path;
     public $avatar_human_size;
     
-    public function mount()
+    public function mount($token)
     {
-        $data = User::where('id','=',Auth::user()->id)->first();
+        $data = User::where('id','=',$token)->first();
         $this->uuid                 = $data->id;
         $this->nama                 = $data->nama;
         $this->username             = $data->username;
@@ -39,13 +36,10 @@ class Password extends Component
     }
     
     protected $rules = [
-        // 'username' => 'required',
-        'password' => [
-            'required',
-            'string',
-            'min:8',
-        ],
-        'password_confirm' => ['required', 'same:password'],
+        'username' => 'required',
+        'password' => ['required', 'string', 'min:8'],
+        'password_confirm' => ['required', 'same:password']
+        
     ];
     
     private function resetInput()
@@ -91,38 +85,30 @@ class Password extends Component
             $model->avatar_human_size = humanFileSize($this->avatar->getSize());
         }
         
+        
         if($model->save()){
             $this->resetInput();
-                                    
-            $log = 'Password berhasil diubah username '.$model->username;
-            setActivity($log);
-            $this->alert('success', $log, [
-                'position' => 'top-end',
+            $this->alert('success', 'Pengguna/User Berhasil di Ubah', [
+                'position' => 'top',
                 'timer' => 3000,
                 'toast' => true,
+                'timerProgressBar' => true,
             ]);
-            if(Auth::user()->role_id==1){
-                return redirect()->route('account.password');
-            }else{
-                return redirect()->route('account.password');
-            }
+            return redirect()->route('account.index');
         }else{
-            $log = 'Password gagal diubah username '.$model->username;
-            $this->alert('error', $log, [
-                'position' => 'top-end',
+            return $this->alert('error', 'Pengguna/User Gagal di Ubah', [
+                'position' => 'top',
                 'timer' => 3000,
                 'toast' => true,
+                'timerProgressBar' => true,
             ]);
         }
         
     }
     
+    #[Layout('components.layouts.form')]
     public function render()
     {
-        if(Auth::user()->role_id == 1){
-            return view('livewire.master.kepegawaian.user.password')->layout('components.layouts.keenthemes.app');
-        }elseif(Auth::user()->role_id == 2){
-            return view('livewire.master.kepegawaian.user.frontend-password')->layout('components.layouts.keenthemes.frontend.app');
-        }
+        return view('livewire.master.kepegawaian.user.akun');
     }
 }

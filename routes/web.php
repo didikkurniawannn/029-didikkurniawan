@@ -22,13 +22,13 @@ Route::group(['middleware' => ['auth','verified','web'],'prefix' => '', 'as' => 
 
 
     //Begin Master
-    Route::prefix('account/user')->group(function () {
-        Route::get('/',App\Livewire\Master\Kepegawaian\User\Index::class)->name('account.index');
-        Route::get('add',App\Livewire\Master\Kepegawaian\User\Add::class)->name('account.create');
-        Route::get('edit/{token}',App\Livewire\Master\Kepegawaian\User\Edit::class)->name('account.update');
-        Route::get('akun/{token}',App\Livewire\Master\Kepegawaian\User\Akun::class)->name('account.view');
-        Route::get('profile',App\Livewire\Master\Kepegawaian\User\Profile::class)->name('account.profile');
-        Route::get('password',App\Livewire\Master\Kepegawaian\User\Password::class)->name('account.password');
+    Route::prefix('master/user')->group(function () {
+        Route::get('/',App\Livewire\Master\User\Index::class)->name('master.index');
+        Route::get('add',App\Livewire\Master\User\Add::class)->name('master.create');
+        Route::get('edit/{token}',App\Livewire\Master\User\Edit::class)->name('master.update');
+        Route::get('akun/{token}',App\Livewire\Master\User\Akun::class)->name('master.view');
+        Route::get('profile',App\Livewire\Master\User\Profile::class)->name('master.profile');
+        Route::get('password',App\Livewire\Master\User\Password::class)->name('master.password');
     });
     
 });

@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Livewire\Master\Kepegawaian\User;
+namespace App\Livewire\Master\User;
 
 use Storage;
 use App\Models\User;

@@ -1,5 +1,5 @@
 <?php
-namespace App\Livewire\Master\Kepegawaian\User;
+namespace App\Livewire\Master\User;
 use Livewire\Component;
 use App\Models\User as Model;
 use Livewire\WithPagination;
