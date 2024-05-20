@@ -109,6 +109,7 @@ class Profile extends Component
                 'position' => 'top-end',
                 'timer' => 3000,
                 'toast' => true,
+                'timerProgressBar' => true,
             ]);
             
             if(Auth::user()->role_id==1){
@@ -123,6 +124,7 @@ class Profile extends Component
                 'position' => 'top-end',
                 'timer' => 3000,
                 'toast' => true,
+                'timerProgressBar' => true,
             ]);
         }
     }       
