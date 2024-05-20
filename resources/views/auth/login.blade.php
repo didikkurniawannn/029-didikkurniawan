@@ -12,10 +12,10 @@
           <!--begin::Wrapper-->
           <div class="w-xl-500px p-10">
 
-            {{-- <form class="form w-100" method="GET" action="{{ route('dashboard') }}"> --}}
+            <form class="form w-100" method="POST" action="{{ route('signin') }}">
                 @csrf
                 <div class="text-center mb-11">
-                    <img src="{{ Storage::disk('public')->url('logo/green_logo.png') }}" class="max-h-75px" height="75px" alt="{{ $data['title'] }}" />
+                    <img src="{{ Storage::disk('public')->url(getApp()->icon) }}" class="max-h-75px" height="75px" alt="{{ getAppName() }}" />
                     <h1 class="text-gray-900 fw-bolder mb-3">@yield('title')</h1>
                 </div>
     
@@ -51,9 +51,9 @@
                 </div>
                 <!--end::Wrapper-->
                 <div class="d-grid mb-10">
-                    <a href="{{ route('dashboard') }}" class="btn btn-success">
+                    <button type="submit" class="btn btn-success">
                         Sign In
-                    </a>
+                    </button>
                 </div>
             {{-- </form> --}}
           </div>
@@ -77,13 +77,13 @@
 
           <!--begin::Title-->
           <h1 class="d-none d-lg-block text-white fs-2qx fw-bolder text-center mb-7">
-            Sistem Informasi Management Rapat
+            {{ getAppName() }}
           </h1>
           <!--end::Title-->
 
           <!--begin::Text-->
           <div class="d-none d-lg-block text-white fs-base text-center">
-            Mr - Versi 1.0 - Hak Cipta © 2024 Didik Kurniawan
+            {{ getDescriptionName() }}
           </div>
           <!--end::Text-->
       </div>

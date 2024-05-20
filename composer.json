@@ -11,6 +11,7 @@
         "laravel/tinker": "^2.9",
         "livewire/livewire": "^3.4",
         "pharaonic/livewire-select2": "^1.2",
+        "spatie/image": "^3.6",
         "symfony/mailer": "^7.0"
     },
     "require-dev": {

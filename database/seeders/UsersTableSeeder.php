@@ -13,6 +13,7 @@ class UsersTableSeeder extends Seeder
         DB::table('users')->insert([
             'id' => 1,
             'instansi_id' => 0,
+            'role_id' => 1,
             'name' => 'Didik Kurniawan',
             'username' => 'superadmin',
             'email' => 'didikkurniawannn@gmail.com',

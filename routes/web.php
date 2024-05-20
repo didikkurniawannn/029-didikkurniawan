@@ -8,6 +8,45 @@ $data = [
     'copyright' => 'Copyright © 2024. Didik Kurniawan.'
 ];
 
+Route::group(['middleware' => ['auth','verified','web'],'prefix' => '', 'as' => '', 'before' => 'csrf'], function () {
+    Route::prefix('dashboard')->group(function () {
+        Route::get('/',App\Livewire\Dashboard::class)->name('dashboard');
+    });
+
+    Route::prefix('utilitas')->group(function () {
+        Route::get('menu',App\Livewire\Utilitas\Menu::class)->name('utilitas.menu');
+        Route::get('role',App\Livewire\Utilitas\Role::class)->name('utilitas.role');
+        Route::get('role-child/{id}',App\Livewire\Utilitas\RoleChild::class)->name('utilitas.role-child');
+        Route::get('setting',App\Livewire\Utilitas\Setting::class)->name('utilitas.setting');
+    });
+
+
+    //Begin Master
+    Route::prefix('account/user')->group(function () {
+        Route::get('/',App\Livewire\Master\Kepegawaian\User\Index::class)->name('account.index');
+        Route::get('add',App\Livewire\Master\Kepegawaian\User\Add::class)->name('account.create');
+        Route::get('edit/{token}',App\Livewire\Master\Kepegawaian\User\Edit::class)->name('account.update');
+        Route::get('akun/{token}',App\Livewire\Master\Kepegawaian\User\Akun::class)->name('account.view');
+        Route::get('profile',App\Livewire\Master\Kepegawaian\User\Profile::class)->name('account.profile');
+        Route::get('password',App\Livewire\Master\Kepegawaian\User\Password::class)->name('account.password');
+    });
+    
+});
+
+Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('login');
+Route::get('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'index'])->name('logout');
+Route::post('/signin', [App\Http\Controllers\Auth\AuthController::class, 'signin'])->name('signin');
+
+Route::get('/register', function() use ($data){
+    return view('auth.register', ['data' => $data]);
+})->name('register');
+
+Route::get('/forgot', function() use ($data){
+    return view('auth.forgot', ['data' => $data]);
+})->name('forgot');
+
+
+
 Route::get('/', function() use ($data){
     return view('frontend.home', ['data' => $data]);
 })->name('home');
@@ -33,33 +72,6 @@ Route::get('/contact-us', function() use ($data){
 Route::get('/detail-rapat', function() use ($data){
     return view('frontend.detail-rapat', ['data' => $data]);
 })->name('detail-rapat');
-
-Route::get('/login', function() use ($data){
-    return view('auth.login', ['data' => $data]);
-})->name('login');
-
-Route::get('/register', function() use ($data){
-    return view('auth.register', ['data' => $data]);
-})->name('register');
-
-Route::get('/forgot', function() use ($data){
-    return view('auth.forgot', ['data' => $data]);
-})->name('forgot');
-
-
-
-Route::get('/dashboard',function() use ($data) {
-    $profile = [
-        'username' => 'didikkurniawannn',
-        'role' => 'Admin',
-        'email' => 'didikkurniawannn@gmail.com',
-        'name' => 'Didik Kurniawan'
-    ];
-    return view('dashboard', ['profile' => $profile,'data' => $data]);
-})->name('dashboard');
-
-
-
 
 
 

@@ -8,7 +8,7 @@
     <title>@yield('title')</title>
     @include('components.layouts.frontend.partials.css')
     <!-- Favicon icon -->
-    <link rel="icon" type="image/ico" sizes="16x16" href="{{ Storage::disk('public')->url('favicon/favicon.ico') }}">
+    <link rel="icon" type="image/ico" sizes="16x16" href="{{ Storage::disk('public')->url(getAppFavicon()) }}">
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <script>

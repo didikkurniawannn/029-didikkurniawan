@@ -4,9 +4,6 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Ramsey\Uuid\Exception\UnsatisfiedDependencyException;
-use Ramsey\Uuid\Uuid as Generator;
-use Spatie\Activitylog\Traits\LogsActivity;
 use Illuminate\Support\Facades\Auth;
 
 class RefRole extends Model
@@ -14,7 +11,7 @@ class RefRole extends Model
     use HasFactory;
     
     protected $connection = 'mysql';
-    protected $table = 'ref_role';
+    protected $table = 'ref_roles';
     protected $primaryKey = 'id';
     
     public $incrementing = false;

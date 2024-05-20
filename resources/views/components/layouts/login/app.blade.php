@@ -6,8 +6,8 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
     <title>@yield('title')</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="title" property="og:title" content="{{ $data['title'] }}">
-    <meta name="description" property="og:description" content="{{ $data['description'] }}">
+    <meta name="title" property="og:title" content="{{ getAppName() }}">
+    <meta name="description" property="og:description" content="{{ getDescriptionName() }}">
 
     <meta name="author" property="og:author" content="Management Rapat">
     <x-layouts.login.partials.css/>

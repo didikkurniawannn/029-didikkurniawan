@@ -15,13 +15,14 @@ class CreateRefMenuTable extends Migration
     {
         Schema::create('ref_menu', function (Blueprint $table) {
             $table->id();
+            $table->string('menu', 255);
             $table->integer('parent_id')->nullable();
-            $table->string('name_menu', 255);
-            $table->string('icon', 255);
             $table->integer('posisi');
-            $table->integer('status');
-            $table->integer('type');
-            $table->string('url', 255);
+            $table->string('jenis_menu');
+            $table->integer('is_active');
+            $table->string('url', 255)->nullable();
+            $table->string('icon', 255)->nullable();
+            $table->string('type', 64)->nullable();
             $table->dateTime('created_at')->nullable();
             $table->integer('created_id')->nullable();
             $table->dateTime('updated_at')->nullable();

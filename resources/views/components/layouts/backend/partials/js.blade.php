@@ -9,4 +9,12 @@
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
+<!-- jQuery -->
+@livewireScripts
+@livewire('wire-elements-modal')
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+
 @stack('js')
+<x-livewire-alert::scripts />
+<x:pharaonic-select2::scripts />

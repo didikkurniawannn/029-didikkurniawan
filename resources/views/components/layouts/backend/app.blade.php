@@ -6,19 +6,22 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @stack('meta')
     <title>@yield('title')</title>
-    <x-layouts.backend.partials.css></x-layouts.backend.partials.css>
+    <meta name="title" property="og:title" content="Management Rapat">
+    <link rel="shortcut icon" href="{!! getAppFavicon() !!}" />
+    <meta name="description" property="og:description" content="-">
+    <meta name="author" property="og:author" content="PT Mitra Sinerji Teknoindo">
     <!-- Favicon icon -->
-    <link rel="icon" type="image/ico" sizes="16x16"
-        href="{{ Storage::disk('public')->url('favicon/favicon.ico') }}">
+    <link rel="icon" type="image/ico" sizes="16x16" href="{{ Storage::disk('public')->url(getAppFavicon()) }}">
 
+    @include('components.layouts.backend.partials.css')
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <script>
         // Frame-busting to prevent site from being loaded within a frame without permission (click-jacking)
         if (window.top != window.self) {
             window.top.location.replace(window.self.location.href);
         }
-
     </script>
+    @livewireStyles
     @stack('css')
 </head>
 <!--end::Head-->
@@ -50,11 +53,9 @@
                         <!--end::Mobile toggle-->
                         <!--begin::Logo image-->
                         <a href="index-2.html">
-                            <img alt="Logo"
-                                src="{{ asset('backend/themes/assets/media/logos/demo63.svg') }}"
+                            <img alt="Logo" src="{{ asset('backend/themes/assets/media/logos/demo63.svg') }}"
                                 class="h-25px theme-light-show" />
-                            <img alt="Logo"
-                                src="{{ asset('backend/themes/assets/media/logos/demo63-dark.svg') }}"
+                            <img alt="Logo" src="{{ asset('backend/themes/assets/media/logos/demo63-dark.svg') }}"
                                 class="h-25px theme-dark-show" />
                         </a>
                         <!--end::Logo image-->
@@ -68,37 +69,17 @@
                             data-kt-swapper-parent="{default: '#kt_app_content_container', lg: '#kt_app_header_wrapper'}">
                             <!--begin::Title-->
                             <h1 class="fs-2 text-gray-900 fw-bold m-0">
-                                {{ $data['title'] }}
+                                {{getAppName()}}
                             </h1>
                             <!--end::Title-->
-                            <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 mb-2">
-
-                                <!--begin::Item-->
-                                <li class="breadcrumb-item text-gray-600 fw-bold lh-1">
-                                    <a href="/metronic8/demo63/index.html"
-                                        class="text-gray-700 text-hover-primary me-1">
-                                        <i class="ki-outline ki-home text-gray-500 fs-7"></i> </a>
-                                </li>
-                                <!--end::Item-->
-
-                                <!--begin::Item-->
-                                <li class="breadcrumb-item">
-                                    <i class="ki-outline ki-right fs-7 text-gray-500 mx-n1"></i> </li>
-                                <!--end::Item-->
-
-
-                                <!--begin::Item-->
-                                <li class="breadcrumb-item text-gray-600 fw-bold lh-1">
-                                    @yield('menu') </li>
-                                <!--end::Item-->
-
-
-                            </ul>
+                            <span class="fs-base fw-semibold text-gray-500">
+                                @yield('menu')
+                            </span>
                         </div>
                         <!--end::Page title-->
 
                         <!--begin::Navbar-->
-                        <x-layouts.backend._topbar :profile="$profile"></x-layouts.backend._topbar>
+                        <x-layouts.backend._topbar></x-layouts.backend._topbar>
                         <!--end::Navbar-->
                     </div>
                     <!--end::Header wrapper-->
@@ -129,15 +110,9 @@
                                         <div id="kt_app_content_container" class="app-container container-fluid">
                                             <!--begin::Layout-->
                                             <div class="d-flex flex-column flex-lg-row">
+                                                <!--begin::Content-->
                                                 <div class="flex-lg-row-fluid mb-10 mb-lg-0">
-                                                    {{-- <div class="card">
-                                                        <div class="card-header">
-                                                            <h4 class="card-title">@yield('title')</h4>
-                                                        </div>
-                                                        <div class="card-body"> --}}
-                                                    @yield('content')
-                                                    {{-- </div>
-                                                    </div> --}}
+                                                      {{$slot}}
                                                 </div>
                                             </div>
                                         </div>
@@ -152,7 +127,7 @@
 
 
                             <!--begin::Footer-->
-                            <x-layouts.backend._footer :data="$data"></x-layouts.backend._footer>
+                            <x-layouts.backend._footer></x-layouts.backend._footer>
 
                             <!--end::Footer-->
                         </div>
@@ -170,6 +145,9 @@
 
 
             <!--end::Drawers-->
+            <!--begin::Engage-->
+            <!-- <div class="app-engage " id="kt_app_engage"></div> -->
+            <!--end::Engage-->
             <!--begin::Modal - Sitemap-->
             <div class="modal fade bg-dark bg-opacity-75" id="kt_app_engage_prebuilts_modal" tabindex="-1"
                 aria-hidden="true">
@@ -181,11 +159,11 @@
             </div>
             <!--end::Scrolltop-->
             <!--end::Theme mode setup on page load-->
-            <x-layouts.backend.partials.js></x-layouts.backend.partials.js>
+            @include('components.layouts.backend.partials.js')
             <script>
                 var defaultThemeMode = "light";
                 var themeMode;
-
+        
                 if (document.documentElement) {
                     if (document.documentElement.hasAttribute("data-bs-theme-mode")) {
                         themeMode = document.documentElement.getAttribute("data-bs-theme-mode");
@@ -196,14 +174,13 @@
                             themeMode = defaultThemeMode;
                         }
                     }
-
+        
                     if (themeMode === "system") {
                         themeMode = window.matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
                     }
-
+        
                     document.documentElement.setAttribute("data-bs-theme", themeMode);
                 }
-
             </script>
 
 </body>

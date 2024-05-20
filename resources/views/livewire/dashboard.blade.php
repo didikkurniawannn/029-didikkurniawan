@@ -1,7 +1,10 @@
-@extends('components.layouts.backend.app')
-@section('title','Dashboard')
-@section('menu','Dashboard')
-@section('content')
+<div>
+@section('title')
+Modul Aplikasi
+@stop
+@section('menu')
+<b>Dashboard</b>
+@stop
 <div class="row gx-5 gx-xl-10">
     <!--begin::Col-->
     <div class="col-xl-4 mb-10">
@@ -1575,4 +1578,3 @@
     </div>
     <!--end::Col-->
 </div>
-@endsection

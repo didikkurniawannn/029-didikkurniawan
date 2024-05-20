@@ -15,8 +15,9 @@ class CreateRefRolesTable extends Migration
     {
         Schema::create('ref_roles', function (Blueprint $table) {
             $table->id();
-            $table->string('name_role', 255);
-            $table->integer('status');
+            $table->string('role', 255);
+            $table->string('alias', 255);
+            $table->integer('is_active');
             $table->dateTime('created_at')->nullable();
             $table->integer('created_id')->nullable();
             $table->dateTime('updated_at')->nullable();
