@@ -26,8 +26,15 @@ class CreateTRapatTable extends Migration
             $table->text('catatan');
             $table->integer('status');
             $table->string('tempat', 255);
+            $table->text('dress_code');
             $table->text('documen');
             $table->text('alamat');
+            $table->integer('provinsi_id')->nullable();
+            $table->integer('kabupaten_id')->nullable();
+            $table->integer('kecamatan_id')->nullable();
+            $table->integer('desa_id')->nullable();
+            $table->integer('step');
+            $table->integer('finish');
             $table->dateTime('created_at')->nullable();
             $table->integer('created_id')->nullable();
             $table->dateTime('updated_at')->nullable();
