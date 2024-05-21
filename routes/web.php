@@ -25,11 +25,6 @@ Route::group(['middleware' => ['auth','verified','web'],'prefix' => '', 'as' => 
         Route::get('user/password',App\Livewire\Master\User\Password::class)->name('master.password');
         Route::get('instansi',App\Livewire\Master\Instansi::class)->name('master.instansi');
     });
-
-    Route::prefix('rapat')->group(function () {
-        Route::get('create',[App\Livewire\Rapat\Agenda\Create::class,'create'])->name('rapat.create');
-        Route::get('informasi',App\Livewire\Rapat\Agenda\Form\Informasi::class)->name('rapat.form.informasi');
-    });
     
 });
 

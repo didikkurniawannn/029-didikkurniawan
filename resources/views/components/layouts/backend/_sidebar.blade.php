@@ -7,7 +7,7 @@
                     <div class="app-sidebar-header d-none d-lg-flex px-6 pt-8 pb-4" id="kt_app_sidebar_header">
                         <!--begin::Toggle-->
                         <div type="button" data-kt-element="selected" class="btn btn-outline btn-custom btn-flex w-100"
-                            data-kt-menu-trigger="click" data-kt-menu-placement="bottom-start"
+                            data-kt-menu-trigger="click"  wire:ignore data-kt-menu-placement="bottom-start"
                             data-kt-menu-offset="0px, -1px">
                             <!--begin::Logo-->
                             <span class="d-flex flex-center flex-shrink-0 w-40px me-3">
@@ -42,33 +42,33 @@
                                     <!--begin:Menu item-->
                                     @foreach (menu(getRoleAksesLogin()) as $item)
                                     @if (cekChild($item->menu->id))
-                                    <div data-kt-menu-trigger="click" class="menu-item menu-sidebar menu-accordion">
+                                    <div data-kt-menu-trigger="click"  wire:ignore class="menu-item menu-sidebar menu-accordion">
                                         <span class="menu-link">
                                             <span class="menu-icon"><i
                                                     class="ki-outline {{ $item->menu->icon }} fs-2"></i></span>
-                                            <span class="menu-title">{{ $item->menu->menu }}</span>
+                                            <span class="menu-title fw-normal">{{ $item->menu->menu }}</span>
                                             <span class="menu-arrow"></span></span>
 
                                         @foreach (menuChild($item->menu->id, getRoleAksesLogin()) as $value)
 
                                         <div class="menu-sub menu-sub-accordion">
                                             @if (cekChild($value->menu->id))
-                                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                                            <div data-kt-menu-trigger="click" wire:ignore class="menu-item menu-accordion">
                                                 <span class="menu-link">
                                                     <span class="menu-icon"><i
                                                             class="ki-outline {{ $value->menu->icon }} fs-2"></i></span>
-                                                    <span class="menu-title">{{ $value->menu->menu }}</span>
+                                                    <span class="menu-title fw-normal">{{ $value->menu->menu }}</span>
                                                     <span class="menu-arrow"></span>
                                                 </span>
 
                                                 @foreach (menuChild($value->menu->id, getRoleAksesLogin()) as $values)
                                                 <div class="menu-sub menu-sub-accordion">
                                                     <div class="menu-item menu-sidebar">
-                                                        <a class="menu-link" href="{{ url($values->menu->url) }}">
+                                                        <a class="menu-link" wire:navigate href="{{ url($values->menu->url) }}">
                                                             <span class="menu-bullet">
                                                                 <span class="bullet bullet-dot"></span>
                                                             </span>
-                                                            <span class="menu-title">{{ $values->menu->menu}}</span>
+                                                            <span class="menu-title fw-normal">{{ $values->menu->menu}}</span>
                                                         </a>
                                                     </div>
                                                 </div>
@@ -76,11 +76,11 @@
                                             </div>
                                             @else
                                             <div class="menu-item menu-sidebar">
-                                                <a class="menu-link" href="{{ url($value->menu->url) }}">
+                                                <a class="menu-link" wire:navigate href="{{ url($value->menu->url) }}">
                                                     <span class="menu-bullet">
                                                         <span class="bullet bullet-dot"></span>
                                                     </span>
-                                                    <span class="menu-title">{{ $value->menu->menu}}</span>
+                                                    <span class="menu-title fw-normal">{{ $value->menu->menu}}</span>
                                                 </a>
                                             </div>
                                             @endif
@@ -88,11 +88,11 @@
                                         @endforeach
                                     </div>
                                     @else
-                                    <a class="menu-item menu-sidebar menu-accordion" href="{{ url($item->menu->url) }}">
+                                    <a class="menu-item menu-sidebar menu-accordion" wire:navigate href="{{ url($item->menu->url) }}">
                                         <span class="menu-link">
                                             <span class="menu-icon"><i
                                                     class="ki-outline {{ $item->menu->icon }} fs-2"></i></span>
-                                            <span class="menu-title">{{ $item->menu->menu}}</span>
+                                            <span class="menu-title {{ isActiveMenu($item->menu->url) }}">{{ $item->menu->menu}}</span>
                                     </a>
                                     @endif
                                     @endforeach
@@ -127,7 +127,16 @@
 
                 @push('js')
                     <script>
-                        $(function () {
+                            // Menangani klik pada menu trigger
+                            $('[data-kt-menu-trigger="click"]').on('click', function(e) {
+                                e.stopPropagation();
+                                var currentMenu = $(this).closest('.menu-item');
+                                currentMenu.toggleClass('show');
+                                $('[data-kt-menu-trigger="click"]').not(currentMenu).removeClass('show');
+                            });
+
+                            
+                        $(document).ready(function() {
                             // Mendapatkan URL saat ini
                             var currentUrl = window.location.href;
 
@@ -136,16 +145,29 @@
                                 return this.href === currentUrl;
                             });
 
+
+
                             // Menambahkan class "active" ke elemen menu dan semua parentnya
                             activeMenu.addClass('active').parents('.menu-item.menu-sidebar.menu-accordion')
-                                .addClass('show');
+                                .addClass('show fw-bold').removeClass('fw-normal');
+                                
+                            activeMenu.parents('.menu-item.menu-sidebar.menu-accordion').find('.menu-title').addClass('fw-bold').removeClass('fw-normal');
 
                             // Menambahkan class "hover show" pada elemen menu-sub menu-sub-accordion apabila aktif
-                            $('.menu-sub.menu-sub-accordion.active').addClass('hover show');
+                            $('.menu-sub.menu-sub-accordion.active').addClass('hover show fw-bold');
 
                             // Menambahkan class "hover show" pada elemen menu-item menu-sidebar menu-accordion apabila aktif
-                            $('.menu-item.menu-sidebar.menu-accordion.active').addClass('hover show');
+                            $('.menu-item.menu-sidebar.menu-accordion.active').addClass('hover show fw-bold');
                         });
 
+                        
                     </script>
                 @endpush
+                @push('css')
+                <style>
+                    .menu-sub.menu-sub-accordion {
+                        display: none; /* Sembunyikan secara default */
+                    }
+                </style>
+                @endpush
+

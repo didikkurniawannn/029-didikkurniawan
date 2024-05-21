@@ -390,4 +390,9 @@ function getRoleAksesLogin()
     }
 }
 
+function isActiveMenu($url)
+{
+    return request()->is($url) ? 'fw-bold' : 'fw-normal';
+}
+
 
