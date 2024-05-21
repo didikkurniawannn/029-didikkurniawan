@@ -1,5 +1,7 @@
 <?php
-namespace App\Livewire\Master\Referensi;
+
+namespace App\Livewire\Master;
+
 use Livewire\Component;
 use App\Models\RefInstansi as Model;
 use App\Models\User;
@@ -15,9 +17,14 @@ class Instansi extends Component
     public $search = '';
     public $id_instansi;
     public $name;
+    public $firstId;
     public $leader;
     public $address;
     public $email;
+    public $no_telp;
+    public $type;
+    public $website;
+    public $showForm = false;
     public $mode = 'create';
     public $actionTitle = 'Tambah';
     public $perpage = 10;
@@ -26,42 +33,37 @@ class Instansi extends Component
     public $sortDirection = "asc";
     protected $queryString = ['search'];
     
-    public function mount()
+    public function rules()
     {
-
+        return [
+            'name'          => 'required',
+            'leader'        => 'required',
+            'address'       => 'required',
+            'email'         => 'required',
+            'no_telp'       => 'required',
+            'type'          => 'required',
+            'website'       => 'required',
+        ];
     }
     public function render()
     {
-        
-            $query = Model::query();
-            
-            $query->when($this->searchJenisInstansi != "0", function ($q) {
-                return $q->where('type', $this->searchJenisInstansi);
-            });
-            
-            $query->when($this->search != "", function ($q) {
-                return $q->whereRaw('LOWER(name) like ?', ['%'.strtolower($this->search).'%']);
-            });
-            $rows = $query->orderBy($this->sortColoumName,$this->sortDirection)
+        $query = Model::query();
+        $query->when($this->searchJenisInstansi != "0", function ($q) {
+            return $q->where('type', $this->searchJenisInstansi);
+        });
+        $query->when($this->search != "", function ($q) {
+           return $q->whereRaw('LOWER(name) like ?', ['%'.strtolower($this->search).'%']);
+        });
+        $rows = $query->orderBy($this->sortColoumName,$this->sortDirection)
             ->paginate($this->perpage);
-
         if ($rows[0]!=null) {
             $this->firstId = $rows[0]->id;
         }
-        return view('livewire.master.referensi.instansi.index', [
+        return view('livewire.master.instansi', [
             'model'=> $rows
         ]);
     }
 
-    public function rules()
-    {
-        return [
-            'name'      => 'required',
-            'leader'      => 'required',
-            'address'      => 'required',
-            'email'      => 'required',
-        ];
-    }
     
     public function sortBy($coloumName)
     {
@@ -85,11 +87,14 @@ class Instansi extends Component
     
     private function resetInput()
     {
-        $this->id_instansi      = NULL;
-        $this->name      = NULL;
-        $this->leader      = NULL;
+        $this->id_instansi  = NULL;
+        $this->name         = NULL;
+        $this->leader       = NULL;
         $this->address      = NULL;
-        $this->email      = NULL;
+        $this->email        = NULL;
+        $this->no_telp      = NULL;
+        $this->type         = NULL;
+        $this->website      = NULL;
     }
     
     public function cancel()
@@ -114,11 +119,14 @@ class Instansi extends Component
         $this->validate();
         $model = Model::firstOrNew(['id' =>  $this->id_instansi]);
         $model->id          = Model::max('id') + 1;
-        $model->name      = $this->name;
+        $model->name        = $this->name;
         $model->leader      = $this->leader;
-        $model->address      = $this->address;
-        $model->email      = $this->email;
-        
+        $model->address     = $this->address;
+        $model->email       = $this->email;
+        $model->no_telp     = $this->no_telp;
+        $model->type        = $this->type;
+        $model->website     = $this->website;
+        $model->status      = 0;
         if($model->save()){
             $this->resetInput();
             $log = 'Data Instansi '.$model->name.' Berhasil di Ditambah';
@@ -145,24 +153,31 @@ class Instansi extends Component
         $this->mode = 'update';
         $this->actionTitle = 'Ubah';
         $this->id_instansi = $idInstansi;
+
         $model = Model::where('id','=',$idInstansi)->first();
-        $this->name      = $model->name;
-        $this->leader      = $model->leader;
+        $this->name         = $model->name;
+        $this->leader       = $model->leader;
         $this->address      = $model->address;
-        $this->email      = $model->email;
+        $this->email        = $model->email;
+        $this->no_telp      = $model->no_telp;
+        $this->type         = $model->type;
+        $this->website      = $model->website;
+
         $this->dispatch("showForm");
-        $this->showForm = true;
+        $this->showForm     = true;
     }
     
     public function update()
     {
         $this->validate();
         $model = Model::firstOrNew(['id' =>  $this->id_instansi]);
-        $model->name      = $this->name;
+        $model->name        = $this->name;
         $model->leader      = $this->leader;
-        $model->address      = $this->address;
-        $model->email      = $this->email;
-        
+        $model->address     = $this->address;
+        $model->email       = $this->email;
+        $model->no_telp     = $this->no_telp;
+        $model->type        = $this->type;
+        $model->website    = $this->website;
         if($model->save()){
             $this->mode = "create";
             $this->actionTitle = 'Ubah';
@@ -225,7 +240,6 @@ class Instansi extends Component
     public function status($id)
     {
         $model = Model::find($id);
-        // dd($model->status);
         $akun = User::Where('username', $model->email)->first();
         User::firstOrCreate(
             [
@@ -238,11 +252,10 @@ class Instansi extends Component
                 'username'          => $model->email,
                 'email'             => $model->email,
                 'nama'              => $model->name,
+                'instansi_id'       => $model->id,
                 'role_id'           => 2,
                 'password'          => bcrypt('12345678'),
                 'is_active'         => 1,
-                'is_delete'         => 0,
-                'status_login'      => 1,
             ]
         );
 
@@ -251,10 +264,23 @@ class Instansi extends Component
         } else {
             $model->status=1;
         }
-        $model->save();
-        $akun->save();
+        if($model->save()){
+            $this->resetInput();
+            $log = 'Data user berhasil di generate dengan password 12345678';
+            setActivity($log);
+            $this->alert('success', $log, [
+                'position' => 'top-end',
+                'timer' => 3000,
+                'toast' => true,
+            ]);
+        }else{
+            $log = 'Data user gagal di generate';
+            $this->alert('error', $log, [
+                'position' => 'top-end',
+                'timer' => 3000,
+                'toast' => true,
+            ]);
+            
+        }
     }
-    
-    
-    
 }

@@ -12,20 +12,18 @@ Route::group(['middleware' => ['auth','verified','web'],'prefix' => '', 'as' => 
     Route::prefix('dashboard')->group(function () {
         Route::get('/',App\Livewire\Dashboard::class)->name('dashboard');
     });
-
     Route::prefix('utilitas')->group(function () {
         Route::get('menu',App\Livewire\Utilitas\Menu::class)->name('utilitas.menu');
         Route::get('role',App\Livewire\Utilitas\Role::class)->name('utilitas.role');
         Route::get('role-child/{id}',App\Livewire\Utilitas\RoleChild::class)->name('utilitas.role-child');
         Route::get('setting',App\Livewire\Utilitas\Setting::class)->name('utilitas.setting');
     });
-
-
     //Begin Master
-    Route::prefix('master/user')->group(function () {
-        Route::get('/',App\Livewire\Master\User\Index::class)->name('master.index');
-        Route::get('profile',App\Livewire\Master\User\Profile::class)->name('master.profile');
-        Route::get('password',App\Livewire\Master\User\Password::class)->name('master.password');
+    Route::prefix('master')->group(function () {
+        Route::get('user',App\Livewire\Master\User\Index::class)->name('master.index');
+        Route::get('user/profile',App\Livewire\Master\User\Profile::class)->name('master.profile');
+        Route::get('user/password',App\Livewire\Master\User\Password::class)->name('master.password');
+        Route::get('instansi',App\Livewire\Master\Instansi::class)->name('master.instansi');
     });
     
 });
