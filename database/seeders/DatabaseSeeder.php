@@ -23,6 +23,9 @@ class DatabaseSeeder extends Seeder
             ProvinceSeeder::class,
             RefSettingSeeder::class,
             UsersTableSeeder::class,
+            RefInstansiSeeder::class,
+            RefMenuSeeder::class,
+            RefRoleChildSeeder::class,
         ]);
     }
 }

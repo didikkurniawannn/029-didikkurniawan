@@ -15,7 +15,7 @@ class CreateTRapatTable extends Migration
     {
         Schema::create('t_rapat', function (Blueprint $table) {
             $table->id();
-            $table->integer('peserta_id');
+            $table->text('peserta_id');
             $table->dateTime('tanggal_mulai');
             $table->dateTime('tanggal_selesai');
             $table->time('jam_mulai');

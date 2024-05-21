@@ -12,7 +12,7 @@ class UsersTableSeeder extends Seeder
     {
         DB::table('users')->insert([
             'id' => 1,
-            'instansi_id' => 0,
+            'instansi_id' => 1,
             'role_id' => 1,
             'nip' => '3312220112940001',
             'jenis_kelamin' => 1,

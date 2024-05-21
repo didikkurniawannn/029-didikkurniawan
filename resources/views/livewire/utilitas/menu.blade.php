@@ -18,7 +18,7 @@ Utilitas > <b>Menu Aplikasi</b>
 @endpush
 <div id="kt_app_content_container" class="app-container  container-fluid ">
     <div class="flex row mt-5">
-        <div class="rg-xxl-8">ow g-0 g-xl-5 
+        <div class="row gx-6 gx-xl-8">
             <div class="col-xl-7">
                 <div class="card card-stretch mb-5 mb-xxl-8">
                     <div class="card-header align-items-center border-0 mt-5">
