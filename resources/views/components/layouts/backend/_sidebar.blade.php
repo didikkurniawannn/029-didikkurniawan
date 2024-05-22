@@ -64,7 +64,7 @@
                                                 @foreach (menuChild($value->menu->id, getRoleAksesLogin()) as $values)
                                                 <div class="menu-sub menu-sub-accordion">
                                                     <div class="menu-item menu-sidebar">
-                                                        <a class="menu-link" wire:navigate href="{{ url($values->menu->url) }}">
+                                                        <a class="menu-link" href="{{ url($values->menu->url) }}">
                                                             <span class="menu-bullet">
                                                                 <span class="bullet bullet-dot"></span>
                                                             </span>
@@ -76,7 +76,7 @@
                                             </div>
                                             @else
                                             <div class="menu-item menu-sidebar">
-                                                <a class="menu-link" wire:navigate href="{{ url($value->menu->url) }}">
+                                                <a class="menu-link" href="{{ url($value->menu->url) }}">
                                                     <span class="menu-bullet">
                                                         <span class="bullet bullet-dot"></span>
                                                     </span>
@@ -88,7 +88,7 @@
                                         @endforeach
                                     </div>
                                     @else
-                                    <a class="menu-item menu-sidebar menu-accordion" wire:navigate href="{{ url($item->menu->url) }}">
+                                    <a class="menu-item menu-sidebar menu-accordion" href="{{ url($item->menu->url) }}">
                                         <span class="menu-link">
                                             <span class="menu-icon"><i
                                                     class="ki-outline {{ $item->menu->icon }} fs-2"></i></span>

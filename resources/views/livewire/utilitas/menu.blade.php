@@ -242,10 +242,6 @@ Utilitas > <b>Menu Aplikasi</b>
     </div>
 </div>
 
-@push('meta')
-    <meta name="turbolinks-visit-control" content="reload">
-    <meta name="turbolinks-cache-control" content="no-cache">
-@endpush
 @push('js')
     <script>
     document.addEventListener('click', function(event) {
@@ -263,7 +259,7 @@ Utilitas > <b>Menu Aplikasi</b>
         cancelButtonColor: '#aaa',
         confirmButtonText: 'Ya'
         }).then((result) => {
-        if (result.value) {
+        if (result.isConfirmed) {
             @this.call('deleteSelectedRequest',event.detail[0].id);
             Swal.fire({title: 'Data Berhasil tersimpan', icon: 'success'});
         } else {

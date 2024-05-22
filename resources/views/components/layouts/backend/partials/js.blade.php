@@ -11,16 +11,43 @@
 
 <!-- jQuery -->
 @livewireScripts
-<script data-navigate-once >
+{{-- <script data-navigate-once >
+    document.addEventListener('DOMContentLoaded', () => {
+    KTMenu.init = function () {
+        KTMenu.createInstances();
+        KTMenu.initHandlers();
+        };
+        KTApp.init();
+        KTDrawer.init();
+        KTMenu.init();
+        KTScroll.init();
+        KTSticky.init();
+        KTSwapper.init();
+        KTToggle.init();
+        KTScrolltop.init();
+        KTDialer.init();
+        KTImageInput.init();
+        KTPasswordMeter.init();
+    });
+
     document.addEventListener('livewire:navigated', () => {
     KTMenu.init = function () {
         KTMenu.createInstances();
-
         KTMenu.initHandlers();
         };
+        KTApp.init();
+        KTDrawer.init();
         KTMenu.init();
+        KTScroll.init();
+        KTSticky.init();
+        KTSwapper.init();
+        KTToggle.init();
+        KTScrolltop.init();
+        KTDialer.init();
+        KTImageInput.init();
+        KTPasswordMeter.init();
     });
-</script>
+</script> --}}
 @livewire('wire-elements-modal')
 <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>

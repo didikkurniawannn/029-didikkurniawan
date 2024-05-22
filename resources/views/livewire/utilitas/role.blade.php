@@ -242,11 +242,6 @@ Utilitas > <b>Role User</b>
     @endif
 </div>
 <!--end::Col-->
-
-@push('meta')
-<meta name="turbolinks-visit-control" content="reload">
-<meta name="turbolinks-cache-control" content="no-cache">
-@endpush
 @push('js')
 <script>
     window.addEventListener('swal:deleteRequest', event => {

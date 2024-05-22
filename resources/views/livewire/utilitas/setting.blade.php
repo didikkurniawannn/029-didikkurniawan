@@ -246,8 +246,7 @@
                             <div class="card-footer">
                                 <div class="form-group row mb-5">
                                     <div class="col-lg-12 col-xl-12">
-                                        <button type="reset" class="btn btn-secondary">Batal</button>
-                                        <button type="button" wire:click.prevent="store" class="btn btn-success mr-2 float-right"> <i
+                                        <button type="button" wire:click.prevent="store" class="btn btn-success float-left"> <i
                                                 class="fa fa-save" /></i> Simpan
                                             <span wire:loading wire:target="store"
                                                 class="spinner-border spinner-border-sm align-middle ms-2"></span>

@@ -51,7 +51,7 @@
                       <div></div>
 
                       <!--begin::Link-->
-                      <a wire:navigate href="{{ route('login') }}" class="link-success">
+                      <a href="{{ route('login') }}" class="link-success">
                           Sudah Punya Akun ?
                       </a>
                       

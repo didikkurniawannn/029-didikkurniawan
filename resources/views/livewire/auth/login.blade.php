@@ -65,7 +65,7 @@
                       <div></div>
 
                       <!--begin::Link-->
-                      <a wire:navigate href="{{ route('forgot') }}" class="link-success">
+                      <a href="{{ route('forgot') }}" class="link-success">
                           Lupa Password ?
                       </a>
                       
