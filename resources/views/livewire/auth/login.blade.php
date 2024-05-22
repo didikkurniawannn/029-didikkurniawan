@@ -16,7 +16,7 @@
                       <!--begin::Title-->
 
                       <a href="javascript:void(0)" class="text-center d-block m-b-10">
-                        <img src="{{ Storage::disk('public')->url(getApp()->logo_url) }}" class="max-h-75px" height="75px" alt="{{ getApp()->name }}" />
+                        <img src="{{ Storage::disk('public')->url('logo/green_logo.png') }}" class="max-h-75px" height="75px" alt="{{ getApp()->name }}" />
                       </a>
 
                       <h1 class="text-gray-900 fw-bolder mb-3">

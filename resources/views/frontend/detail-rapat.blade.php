@@ -229,7 +229,7 @@
 
                                     <!--begin::Subtitle-->
                                     <span class="nav-text text-gray-600 fw-bold fs-6 lh-1">
-                                        Download File
+                                        Lampiran
                                     </span>
                                     <!--end::Subtitle-->
 

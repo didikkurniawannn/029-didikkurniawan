@@ -15,8 +15,8 @@
             <form class="form w-100" method="POST" action="{{ route('signin') }}">
                 @csrf
                 <div class="text-center mb-11">
-                    <img src="{{ Storage::disk('public')->url(getApp()->icon) }}" class="max-h-75px" height="75px" alt="{{ getAppName() }}" />
-                    <h1 class="text-gray-900 fw-bolder mb-3">@yield('title')</h1>
+                    <img src="{{ Storage::disk('public')->url('logo/green_logo.png') }}" class="max-h-75px" height="75px" alt="{{ getAppName() }}" />
+                    {{-- <h1 class="text-gray-900 fw-bolder mb-3">@yield('title')</h1> --}}
                 </div>
     
                 <div class="fv-row mb-8">

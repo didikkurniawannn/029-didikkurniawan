@@ -34,7 +34,7 @@
                         <div id="kt_app_sidebar_menu_wrapper" class="hover-scroll-y" data-kt-scroll="true"
                             data-kt-scroll-height="auto"
                             data-kt-scroll-dependencies="#kt_app_sidebar_header, #kt_app_sidebar_footer"
-                            data-kt-scroll-offset="20px" style="height: 252px;">
+                            data-kt-scroll-offset="20px">
                             <div class="app-sidebar-navs-default px-5 mb-10">
                                 <div id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false"
                                     class="menu menu-column menu-rounded menu-sub-indention">
@@ -128,12 +128,19 @@
                 @push('js')
                     <script>
                             // Menangani klik pada menu trigger
-                            $('[data-kt-menu-trigger="click"]').on('click', function(e) {
-                                e.stopPropagation();
-                                var currentMenu = $(this).closest('.menu-item');
-                                currentMenu.toggleClass('show');
-                                $('[data-kt-menu-trigger="click"]').not(currentMenu).removeClass('show');
-                            });
+
+                            // $('[data-kt-menu-trigger="click"]').on('click', function(e) {
+                            //     e.stopPropagation();
+                            //     var currentMenu = $(this).closest('.menu-item');
+                            //     currentMenu.toggleClass('show');
+                            //     $('[data-kt-menu-trigger="click"]').not(currentMenu).removeClass('show');
+                            // });
+
+                            // document.addEventListener("livewire:load", function () {
+                            // Livewire.on("mount", function () {
+                            // KTMenu.init();
+                            // });
+                            // });
 
                             
                         $(document).ready(function() {
@@ -144,8 +151,6 @@
                             var activeMenu = $('.menu-item.menu-sidebar.menu-accordion a').filter(function () {
                                 return this.href === currentUrl;
                             });
-
-
 
                             // Menambahkan class "active" ke elemen menu dan semua parentnya
                             activeMenu.addClass('active').parents('.menu-item.menu-sidebar.menu-accordion')
@@ -160,7 +165,6 @@
                             $('.menu-item.menu-sidebar.menu-accordion.active').addClass('hover show fw-bold');
                         });
 
-                        
                     </script>
                 @endpush
                 @push('css')

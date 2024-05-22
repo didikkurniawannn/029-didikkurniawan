@@ -353,7 +353,7 @@
 
             <!--begin::Menu item-->
             <div class="menu-item px-5">
-                <a href="{{ route('master.profile') }}" class="menu-link px-5">
+                <a wire:navigate href="{{ route('master.profile') }}" class="menu-link px-5">
                 Profil Saya
                 </a>
             </div>
@@ -361,7 +361,7 @@
 
             <!--begin::Menu item-->
             <div class="menu-item px-5">
-                <a href="{{ route('master.password') }}" class="menu-link px-5">
+                <a wire:navigate href="{{ route('master.password') }}" class="menu-link px-5">
                     <span class="menu-text">Ubah Password</span>
                     <span class="menu-badge">
                         <span class="badge badge-light-danger badge-circle fw-bold fs-7"></span>
@@ -431,7 +431,7 @@
             <!--end::Menu item-->
             <!--begin::Menu item-->
             <div class="menu-item px-5">
-                <a href="{{ route('logout') }}" class="menu-link px-5">
+                <a wire:navigate href="{{ route('logout') }}" class="menu-link px-5">
                     Logout
                 </a>
             </div>
