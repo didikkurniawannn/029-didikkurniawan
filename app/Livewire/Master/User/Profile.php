@@ -95,9 +95,6 @@ class Profile extends Component
             $model->avatar_url = $this->avatar->store('avatar', 'public');
             $model->avatar_size = $this->avatar->getSize();
             $model->avatar_path = Storage::disk('public')->path($this->avatar->store('avatar', 'public'));
-            Image::load(Storage::disk('public')->path($this->avatar->store('avatar', 'public')))
-            ->quality(10)
-            ->save();
         }
 
         if($model->save()){

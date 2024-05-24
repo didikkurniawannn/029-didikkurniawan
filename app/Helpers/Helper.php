@@ -2,6 +2,7 @@
 use App\Models\RefMenu;
 use App\Models\RefSetting;
 use App\Models\RefAksesMenu;
+use App\Models\RefInstansi;
 use App\Models\User;
 use App\Models\Activity;
 use Illuminate\Support\Facades\Auth;
@@ -179,45 +180,54 @@ function getGender($status)
     return $hasil;
 }
 
+function waktuIndo($waktu)
+{
+    // Pastikan Carbon diatur ke lokal Indonesia
+    Carbon::setLocale('id');
+    $dt = new Carbon($waktu);
+
+    return $dt->isoFormat('LT').' WIB';
+}
+
 function TglIndo($tgl)
 {
     $dt = new  \Carbon\Carbon($tgl);
-    setlocale(LC_TIME, 'IND');
+    setlocale(LC_TIME, 'id_ID');
     $bulan = Bulan($tgl);
-    $tgl = $dt->formatLocalized('%e');
-    $tahun = $dt->formatLocalized('%Y');
+    $tgl = $dt->isoFormat('D');
+    $tahun = $dt->isoFormat('YYYY');
     return $tgl . ' ' . $bulan . ' ' . $tahun;
 }
 
 function TglIndoHari($tgl)
 {
-    setlocale(LC_TIME, 'IND');
+    setlocale(LC_TIME, 'id_ID');
     $dts = Carbon::parse($tgl)->locale('id'); // Mengatur format bahasa ke bahasa Indonesia
     $dt = new  \Carbon\Carbon($tgl);
     $hari = Hari($tgl);
     $bulan = Bulan($tgl);
-    $tgl = $dt->formatLocalized('%e');
-    $tahun = $dt->formatLocalized('%Y');
+    $tgl = $dt->isoFormat('D');
+    $tahun = $dt->isoFormat('YYYY');
     return $hari . ', ' . $tgl . ' ' . $bulan . ' ' . $tahun;
 }
 function TglIndoTahun($tgl)
 {
     $dt = new  \Carbon\Carbon($tgl);
-    setlocale(LC_TIME, 'IND');
+    setlocale(LC_TIME, 'id_ID');
     $bulan = Bulan($tgl);
-    $tgl = $dt->formatLocalized('%e');
-    $tahun = $dt->formatLocalized('%Y');
+    $tgl = $dt->isoFormat('D');
+    $tahun = $dt->isoFormat('YYYY');
     return $tahun;
 }
 function TglTimeIndo($tgl)
 {
-    setlocale(LC_TIME, 'IND');
+    setlocale(LC_TIME, 'id_ID');
     $dts = Carbon::parse($tgl)->locale('id'); // Mengatur format bahasa ke bahasa Indonesia
     $dt = new  \Carbon\Carbon($tgl);
     $hari = Hari($tgl);
     $bulan = Bulan($tgl);
-    $tgl = $dt->formatLocalized('%e');
-    $tahun = $dt->formatLocalized('%Y');
+    $tgl = $dt->isoFormat('D');
+    $tahun = $dt->isoFormat('YYYY');
     return $hari . ', ' . $tgl . ' ' . $bulan . ' ' . $tahun .  ' - ' . $dt->format('H:i');;
 }
 
@@ -237,7 +247,7 @@ function nilai($angka, $koma)
 function Hari($tgl)
 {
     $dt = new \Carbon\Carbon($tgl);
-    // setlocale(LC_TIME, 'IND');
+    // setlocale(LC_TIME, 'id_ID');
     $hariInggris = $dt->format('l');
     
     $hariIndonesia = [
@@ -274,17 +284,15 @@ function StatusSurat($id)
 function TglStandar($tgl)
 {
     $dt = new  \Carbon\Carbon($tgl);
-    // setlocale(LC_TIME, 'IND');
+    // setlocale(LC_TIME, 'id_ID');
     return $dt->format('Y-m-d');
 }
 
 function Bulan($tgl)
 {
     $dt = new \Carbon\Carbon($tgl);
-    setlocale(LC_TIME, 'IND');
-    
-    // Ambil bulan dalam bentuk angka
-    $bulan = $dt->formatLocalized('%m');
+    setlocale(LC_TIME, 'id_ID');  // Pastikan locale 'id_ID' tersedia di sistem Anda
+    $bulan = $dt->isoFormat('MM');  // Menggunakan 'MMMM' untuk nama bulan penuh
     
     // Array untuk menyimpan nama bulan
     $bulanNames = [
@@ -302,9 +310,8 @@ function Bulan($tgl)
 function BulanAngka($tgl)
 {
     $dt = new  \Carbon\Carbon($tgl);
-    setlocale(LC_TIME, 'IND');
-    
-    $bulan = $dt->formatLocalized('%m');
+    setlocale(LC_TIME, 'id_ID');  // Pastikan locale 'id_ID' tersedia di sistem Anda
+    $bulan = $dt->isoFormat('MM');  // Menggunakan 'MMMM' untuk nama bulan penuh
     return $bulan;
 }
 
@@ -326,10 +333,10 @@ function Tanggal($tgl = null)
     ];
     
     $dt = new \Carbon\Carbon($tgl);
-    setlocale(LC_TIME, 'IND');
+    setlocale(LC_TIME, 'id_ID');
     
     // Ambil tanggal dalam bentuk angka
-    $day = $dt->formatLocalized('%e');
+    $day = $dt->isoFormat('D');
     
     // Ambil nama tanggal dari array
     $tanggal = isset($tanggalNames[$day - 1]) ? $tanggalNames[$day - 1] : "Satu";
@@ -393,6 +400,11 @@ function getRoleAksesLogin()
 function isActiveMenu($url)
 {
     return request()->is($url) ? 'fw-bold' : 'fw-normal';
+}
+
+function getInstansi($id){
+    $data = RefInstansi::where('id',$id)->first();
+    return $data->name;
 }
 
 

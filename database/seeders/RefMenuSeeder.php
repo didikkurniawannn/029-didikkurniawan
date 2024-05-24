@@ -183,6 +183,20 @@ class RefMenuSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ],
+            
+            [
+                'id' => 14,
+                'menu' => 'Buat Rapat',
+                'parent_id' => 0,
+                'posisi' => 2,
+                'jenis_menu' => 'Backend',
+                'is_active' => 1,
+                'icon' => 'ki-notepad-edit',
+                'url' => 'rapat/create',
+                'type' => 'controller',
+                'created_at' => Carbon::now(),
+                'updated_at' => Carbon::now(),
+            ],
             // Add the rest of the menu items here following the same structure
         ]);
     }

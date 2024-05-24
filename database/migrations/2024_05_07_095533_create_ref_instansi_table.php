@@ -15,15 +15,15 @@ class CreateRefInstansiTable extends Migration
     {
         Schema::create('ref_instansi', function (Blueprint $table) {
             $table->id();
-            $table->string('name', 255);
-            $table->string('leader', 255);
-            $table->string('address', 255);
+            $table->string('name', 255)->nullable();
+            $table->string('leader', 255)->nullable();
+            $table->string('address', 255)->nullable();
             $table->string('email', 255)->nullable();
             $table->string('image', 255)->nullable();
             $table->string('website', 255)->nullable();
-            $table->string('no_telp', 255);
-            $table->integer('status');
-            $table->integer('type');
+            $table->string('no_telp', 255)->nullable();
+            $table->integer('status')->nullable();
+            $table->integer('type')->nullable();
             $table->dateTime('created_at')->nullable();
             $table->integer('created_id')->nullable();
             $table->dateTime('updated_at')->nullable();
