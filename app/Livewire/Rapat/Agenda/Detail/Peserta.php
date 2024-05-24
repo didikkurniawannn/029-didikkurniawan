@@ -24,10 +24,11 @@ class Peserta extends Component
         $this->data_rapat = $data;
         $this->peserta_id = json_decode($data->peserta_id);
         $this->peserta = []; // Pastikan array ini sudah dideklarasikan
-
-        foreach ($this->peserta_id as $val) {
-            $nama_dinas = getInstansi($val);
-            array_push($this->peserta, $nama_dinas); // Menambahkan nama dinas ke array peserta
+        if (!empty($this->peserta_id)) {
+            foreach ($this->peserta_id as $val) {
+                $nama_dinas = getInstansi($val);
+                array_push($this->peserta, $nama_dinas); // Menambahkan nama dinas ke array peserta
+            }
         }
     }
     

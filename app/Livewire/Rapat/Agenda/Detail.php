@@ -17,10 +17,6 @@ class Detail extends Component
 
         $this->data_rapat               = $data;
         $this->idRapat                  = $data->id;
-        // $this->peserta_id           = json_decode($data->peserta_id);
-        // $this->keterangan_peserta   = $data->keterangan_peserta;
-        // $this->documentList         = json_decode($data->document);
-        // $this->listSkpd             = RefInstansi::orderBy('type','asc')->get();
     }
 
     public function render()

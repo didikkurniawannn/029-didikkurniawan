@@ -4,6 +4,7 @@ use App\Models\RefSetting;
 use App\Models\RefAksesMenu;
 use App\Models\RefInstansi;
 use App\Models\User;
+use App\Models\Transaksi\Rapat;
 use App\Models\Activity;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -405,6 +406,41 @@ function isActiveMenu($url)
 function getInstansi($id){
     $data = RefInstansi::where('id',$id)->first();
     return $data->name;
+}
+
+function statusBerkas($id){
+    $html = '';
+    $modal = Rapat::find($id)->first();
+    if($modal->finish == 0){
+        if ($modal->step==1){
+            $html .= '<span class="badge badge-light-danger">Mengisi Informasi Rapat</span>';
+        }elseif ($modal->step==2){
+            $html .= '<span class="badge badge-light-danger">Mengisi Lokasi</span>';
+        }elseif ($modal->step==3){
+            $html .= '<span class="badge badge-light-danger">Mengisi Daftar Peserta</span>';
+        }elseif ($modal->step==4){
+            $html .= '<span class="badge badge-light-success">Belum Klik Simpan Data</span>';
+        }
+    }elseif($modal->finish == 1){
+        $html .= '<span class="badge badge-light-success">Sudah Simpan dan Selesai</span>';
+    }
+    
+    return $html;
+}
+
+function statusRapat($status){
+    $html = '';
+    if ($status==0){
+        $html .= '<span class="badge badge-light-danger">Belum diverifikasi</span>';
+    }elseif ($status==1){
+        $html .= '<span class="badge badge-light-primary">Sedang Berlangsung</span>';
+    }elseif ($status==2){
+        $html .= '<span class="badge badge-light-danger">Ditolak</span>';
+    }elseif ($status==3){
+        $html .= '<span class="badge badge-light-success">Selesai</span>';
+    }
+    
+    return $html;
 }
 
 

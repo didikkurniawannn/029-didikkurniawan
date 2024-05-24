@@ -75,6 +75,8 @@ class Informasi extends Component
                     'catatan'           => $this->catatan,
                     'step'              => 1,
                     'finish'            => 0,
+                    'is_delete'         => 0,
+                    'status'            => 0,
                     'created_id'        => Auth::user()->id,
                     'updated_id'        => Auth::user()->id,
                     'updated_at'        => date('Y-m-d H:i:s'),

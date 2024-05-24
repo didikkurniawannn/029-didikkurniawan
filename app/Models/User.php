@@ -23,6 +23,7 @@ class User extends Authenticatable
         'role_id',
         'instansi_id',
         'is_active',
+        'nip',
         'password',
     ];
 

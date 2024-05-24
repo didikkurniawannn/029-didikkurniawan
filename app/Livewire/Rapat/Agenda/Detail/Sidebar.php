@@ -62,6 +62,64 @@ class Sidebar extends Component
                 ]);
             }
     }
+
+    public function enableRapat(){
+        $model = Model::updateOrCreate([
+                'id' => $this->idRapat
+            ],
+            [
+                'step'                  => 4,
+                'finish'                => 1,
+                'status'                => 1,
+            ]);
+
+            if($model->wasRecentlyCreated || $model->wasChanged()){
+                setActivity('User '.Auth::user()->username.' telah menyetujui id rapat '.$model->id);
+                $this->alert('success', 'Rapat berhasil diverifikasi', [
+                        'position' => 'top',
+                        'timer' => 3000,
+                        'toast' => true,
+                        'timerProgressBar' => true,
+                ]);
+                return redirect()->route('rapat.detail', [Crypt::encrypt($model->id)]);
+            }else{
+                return $this->alert('error', 'Data Gagal di Simpan', [
+                        'position' => 'top',
+                        'timer' => 3000,
+                        'toast' => true,
+                        'timerProgressBar' => true,
+                ]);
+            }
+    }
+
+    public function disableRapat(){
+        $model = Model::updateOrCreate([
+                'id' => $this->idRapat
+            ],
+            [
+                'step'                  => 4,
+                'finish'                => 0,
+                'status'                => 2,
+            ]);
+
+            if($model->wasRecentlyCreated || $model->wasChanged()){
+                setActivity('User '.Auth::user()->username.' telah menolak id rapat '.$model->id);
+                $this->alert('success', 'Rapat berhasil diverifikasi', [
+                        'position' => 'top',
+                        'timer' => 3000,
+                        'toast' => true,
+                        'timerProgressBar' => true,
+                ]);
+                return redirect()->route('rapat.detail', [Crypt::encrypt($model->id)]);
+            }else{
+                return $this->alert('error', 'Data Gagal di Simpan', [
+                        'position' => 'top',
+                        'timer' => 3000,
+                        'toast' => true,
+                        'timerProgressBar' => true,
+                ]);
+            }
+    }
     
 }
 

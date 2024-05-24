@@ -23,13 +23,33 @@
 
     <!--begin::Actions-->
     <div class="mb-0">
-        @if ($data_rapat->finish != 1)
+        @if ($data_rapat->finish != 1 && Auth::user()->role_id != 1)
         <div class="separator separator-dashed mb-7"></div>
         <center>
             <div class="d-grid gap-2">
                 <a class="btn btn-warning text-center btn-block" wire:click="submitRapat">
                     <span wire:loading class="spinner-border spinner-border-sm align-middle ms-2"></span>
                     Simpan dan Selesai
+                </a>
+            </div>
+        </center>
+        @endif
+
+        @if ($data_rapat->step == 4 && Auth::user()->role_id == 1)
+        <div class="separator separator-dashed mb-7"></div>
+        <center>
+            <div class="d-grid gap-2">
+                <a class="btn btn-success text-center btn-block" wire:click="enableRapat">
+                    <span wire:loading class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    Setujui Rapat
+                </a>
+            </div>
+        </center>
+        <center>
+            <div class="d-grid gap-2 mt-2">
+                <a class="btn btn-danger text-center btn-block" wire:click="disableRapat">
+                    <span wire:loading class="spinner-border spinner-border-sm align-middle ms-2"></span>
+                    Tolak Rapat
                 </a>
             </div>
         </center>

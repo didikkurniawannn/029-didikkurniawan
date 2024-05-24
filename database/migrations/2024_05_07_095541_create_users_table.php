@@ -16,11 +16,11 @@ return new class extends Migration
             $table->integer('instansi_id')->nullable();
             $table->integer('role_id')->nullable();
             $table->string('nama', 255);
-            $table->string('nip', 255);
-            $table->integer('jenis_kelamin');
-            $table->date('tanggal_lahir');
-            $table->string('phone', 255);
-            $table->text('alamat');
+            $table->string('nip', 255)->nullable();
+            $table->integer('jenis_kelamin')->nullable();
+            $table->date('tanggal_lahir')->nullable();
+            $table->string('phone', 255)->nullable();
+            $table->text('alamat')->nullable();
             $table->string('username', 255);
             $table->string('password', 255);
             $table->string('email', 255);
