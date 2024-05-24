@@ -23,11 +23,11 @@
 
     <!--begin::Actions-->
     <div class="mb-0">
-        @if ($data_rapat->validasi_id != 1)
+        @if ($data_rapat->finish != 1)
         <div class="separator separator-dashed mb-7"></div>
         <center>
             <div class="d-grid gap-2">
-                <a class="btn btn-warning text-center btn-block" wire:click="editDokumenValidasi">
+                <a class="btn btn-warning text-center btn-block" wire:click="submitRapat">
                     <span wire:loading class="spinner-border spinner-border-sm align-middle ms-2"></span>
                     Simpan dan Selesai
                 </a>
