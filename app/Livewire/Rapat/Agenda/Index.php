@@ -60,13 +60,14 @@ class Index extends Component
             //     return $q->where('detail_tgl','=',$this->selectTanggal);
             // });
         if(Auth::user()->role_id == 2){
-            $rows = $query->where('created_id',Auth::user()->instansi_id)->where('is_delete','!=', 1)
+            $rows = $query->where('created_id',Auth::user()->id)->where('is_delete','!=', 1)
             ->orderBy($this->sortColoumName,$this->sortDirection)
             ->paginate($this->perpage);
         }else{
             $rows = $query->where('is_delete','!=', 1)->orderBy($this->sortColoumName,$this->sortDirection)
             ->paginate($this->perpage);
         }
+        // dd($rows);
 
         if ($rows[0]!=null) {
             $this->firstId = $rows[0]->id;

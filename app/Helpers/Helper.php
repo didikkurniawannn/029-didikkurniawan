@@ -410,7 +410,7 @@ function getInstansi($id){
 
 function statusBerkas($id){
     $html = '';
-    $modal = Rapat::find($id)->first();
+    $modal = Rapat::where('id',$id)->first();
     if($modal->finish == 0){
         if ($modal->step==1){
             $html .= '<span class="badge badge-light-danger">Mengisi Informasi Rapat</span>';
@@ -419,10 +419,10 @@ function statusBerkas($id){
         }elseif ($modal->step==3){
             $html .= '<span class="badge badge-light-danger">Mengisi Daftar Peserta</span>';
         }elseif ($modal->step==4){
-            $html .= '<span class="badge badge-light-success">Belum Klik Simpan Data</span>';
+            $html .= '<span class="badge badge-light-danger">Belum Klik Simpan Data</span>';
         }
     }elseif($modal->finish == 1){
-        $html .= '<span class="badge badge-light-success">Sudah Simpan dan Selesai</span>';
+        $html .= '<span class="badge badge-light-success">Berkas Selesai</span>';
     }
     
     return $html;

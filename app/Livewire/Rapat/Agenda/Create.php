@@ -24,14 +24,18 @@ class Create extends Component
         if(empty($rapat->step) || Auth::user()->role_id==1){
             return redirect()->route('rapat.form.informasi');
         }else{
-            if($rapat->step == 1){
-                return redirect()->route('rapat.form.informasi', [Crypt::encrypt($rapat->id)]);
-            }elseif($rapat->step == 2){
-                return redirect()->route('rapat.form.lokasi', [Crypt::encrypt($rapat->id)]);
-            // }elseif($rapat->step == 2){
-            //     return redirect()->route('bphtb.form.objek.pajak', [Crypt::encrypt($rapat->id)]);
-            // }elseif($rapat->step == 3){
-            //     return redirect()->route('bphtb.form.maps', [Crypt::encrypt($rapat->id)]);
+            if($rapat->finish == 1){
+                return redirect()->route('rapat.detail', [Crypt::encrypt($rapat->id)]);
+            }else{
+                if($rapat->step == 1){
+                    return redirect()->route('rapat.form.informasi', [Crypt::encrypt($rapat->id)]);
+                }elseif($rapat->step == 2){
+                    return redirect()->route('rapat.form.lokasi', [Crypt::encrypt($rapat->id)]);
+                }elseif($rapat->step == 3){
+                    return redirect()->route('rapat.form.peserta', [Crypt::encrypt($rapat->id)]);
+                }elseif($rapat->step == 4){
+                    return redirect()->route('rapat.detail', [Crypt::encrypt($rapat->id)]);
+                }
             }
         }
     }

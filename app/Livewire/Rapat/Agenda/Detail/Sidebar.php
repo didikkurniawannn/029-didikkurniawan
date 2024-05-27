@@ -92,14 +92,25 @@ class Sidebar extends Component
             }
     }
 
-    public function disableRapat(){
+    public function disabledVerifikasi($id)
+    {
+        $this->dispatch("swal:disabledVerifikasi", [
+            'type' => 'warning',
+            'title' =>'Apa anda yakin ?',
+            'text' =>'Setelah memilih YA maka akan dikembalikan ke Pembuat Rapat',
+            'id'=>$id
+        ]);
+    }
+
+    public function disableRapat($id,$catatan){
         $model = Model::updateOrCreate([
-                'id' => $this->idRapat
+                'id' => $id
             ],
             [
                 'step'                  => 4,
                 'finish'                => 0,
                 'status'                => 2,
+                'catatan_verifikasi'    => $catatan,
             ]);
 
             if($model->wasRecentlyCreated || $model->wasChanged()){
@@ -120,6 +131,7 @@ class Sidebar extends Component
                 ]);
             }
     }
+
     
 }
 

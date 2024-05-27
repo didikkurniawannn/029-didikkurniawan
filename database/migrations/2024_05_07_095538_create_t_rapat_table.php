@@ -38,6 +38,7 @@ class CreateTRapatTable extends Migration
             $table->integer('desa_id')->nullable();
             $table->integer('step')->nullable();
             $table->integer('finish')->nullable();
+            $table->text('catatan_varifikasi')->nullable();
             $table->dateTime('created_at')->nullable();
             $table->integer('created_id')->nullable();
             $table->dateTime('updated_at')->nullable();
