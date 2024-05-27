@@ -42,4 +42,6 @@
 <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
 
 @livewireScripts
+
+@livewire('wire-elements-modal')
 @stack('js')

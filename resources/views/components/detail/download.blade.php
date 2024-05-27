@@ -1,37 +1,46 @@
 <div class="tab-pane fade" id="kt_stats_widget_1_tab_4" role="tabpanel">
     <!--begin::Table container-->
-    <div class="table-responsive">
-        <!--begin::Table-->
-        <table class="table align-middle gs-0 gy-4 my-0">
-            <!--begin::Table head-->
-            <thead>
-                <tr class="fs-7 fw-bold text-gray-500">
-                    <th class="p-0 min-w-150px d-block pt-3">File</th>
-                    <th class="text-end min-w-140px pt-3">Download</th>
-                </tr>
-            </thead>
-            <!--end::Table head-->
+    <div class="d-flex flex-column flex-lg-row">
+        <!--begin::Sidebar-->
+        <div class="flex-lg-row-fluid me-lg-15 order-2 order-lg-1 mb-10 mb-lg-0">
+            <!--begin::Contacts-->
+            <div class="card card-flush">
+                <!--begin::Card header-->
+                <div class="card-header pt-7" id="kt_chat_contacts_header">
+                    <!--begin::Form-->
+                   <h3>Lampiran Pendukung Rapat</h3>
+                    <!--end::Form-->
+                </div>
+                <!--end::Card header-->
 
-            <!--begin::Table body-->
-            <tbody>
-                @for ($i=0;$i<=3;$i++)
-                <tr>
-                    <td>
-                        <a href="#"
-                            class="text-gray-800 fw-bold text-hover-primary mb-1 fs-6">File {{ $i }}</a>
-                    </td>
+                <!--begin::Card body-->
+                <div class="card-body pt-5" id="kt_chat_contacts_body">
+                    @if(!empty($document))
+                    @foreach($document as $val)
+                    <div class="d-flex flex-stack">
+                        <!--begin::Section-->
+                        <div class="text-gray-900 fw-bolder fs-6 me-2">{{str_replace("rapat/lampiran/", "", $val)}}
+                        </div>
+                        <!--end::Section-->
 
-                    <td class="text-end">
-                        <span class="badge badge-light-warning fs-7 fw-bold">Download</span>
-                    </td>
+                        <!--begin::Statistics-->
+                        <div class="d-flex align-items-senter">
+                            <a href="{{Storage::disk('public')->url($val)}}" target="_blank" class="kt-widget__desc">
+                                <img class="h-30px" src="{{ asset('backend/themes/assets/media/svg/files/pdf.svg') }}"
+                                    alt="image">
+                            </a>
+                        </div>
+                        <!--end::Statistics-->
+                    </div>
+                    <!--end::Item-->
 
-                </tr>
-                    
-                @endfor
-            </tbody>
-            <!--end::Table body-->
-        </table>
-        <!--end::Table-->
+                    <!--begin::Separator-->
+                    <div class="separator separator-dashed my-3"></div>
+                    <!--end::Separator-->
+                    @endforeach
+                    @endif
+                </div>
+            </div>
+        </div>
     </div>
-    <!--end::Table container-->
 </div>

@@ -44,6 +44,7 @@ Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index']
 Route::post('/signin', [App\Http\Controllers\Auth\AuthController::class, 'signin'])->name('signin');
 
 Route::get('/',App\Livewire\Frontend\Home::class)->name('home');
+Route::get('detail-rapat/{id}',App\Livewire\Frontend\Detail::class)->name('detail-rapat');
 
 
 Route::get('/register', function() use ($data){
@@ -73,9 +74,6 @@ Route::get('/contact-us', function() use ($data){
     return view('frontend.contact-us', ['data' => $data]);
 })->name('contact-us');
 
-Route::get('/detail-rapat', function() use ($data){
-    return view('frontend.detail-rapat', ['data' => $data]);
-})->name('detail-rapat');
 
 
 

@@ -1,51 +1,72 @@
+<!-- @props(['informasi']) -->
 <div class="tab-pane fade show active" id="kt_stats_widget_1_tab_1" role="tabpanel">
     <!--begin::Table container-->
-    <p class="fs-5 fw-semibold text-gray-600 py-6">
-    Lorem ipsum dolor sit amet consectetur adipisicing elit. Earum ullam aperiam blanditiis in est ea non laborum natus officiis obcaecati ducimus, quam dolorum, suscipit facilis illo necessitatibus eveniet, dolore distinctio!
-    </p>
-    <div class="row mb-7">
-        <!--begin::Label-->
-        <label class="col-lg-4 fw-semibold text-muted">Hari/Tanggal</label>
-        <!--end::Label-->
+    <!--begin::Table container-->
+    <div class="d-flex flex-column flex-lg-row">
+        <!--begin::Sidebar-->
+        <div class="flex-lg-row-fluid me-lg-15 order-2 order-lg-1 mb-10 mb-lg-0">
+            <!--begin::Contacts-->
+            <div class="card card-flush">
+                <!--begin::Card header-->
+                <div class="card-header pt-7" id="kt_chat_contacts_header">
+                    <!--begin::Form-->
+                   <h3>Informasi Acara</h3> 
+                    <!--end::Form-->
+                </div>
+                <!--end::Card header-->
 
-        <!--begin::Col-->
-        <div class="col-lg-8">                    
-            <span class="fw-bold fs-6 text-gray-800">{{ $informasi['hari'] }} / {{ $informasi['tanggal'] }}</span>                
-        </div>
-        <!--end::Col-->
-    </div>
-    <div class="row mb-7">
-        <!--begin::Label-->
-        <label class="col-lg-4 fw-semibold text-muted">Waktu</label>
-        <!--end::Label-->
+                <!--begin::Card body-->
+                <div class="card-body pt-5" id="kt_chat_contacts_body">
+                    <p class="fs-5 fw-semibold text-gray-600 py-6">
+                        {{preg_replace('/<\s*p[^>]*>(.*?)<\s*\/\s*p\s*>/', '$1', $informasi->agenda) }}
+                    </p>
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Nama Rapat</label>
+                        <!--end::Label-->
 
-        <!--begin::Col-->
-        <div class="col-lg-8">                    
-            <span class="fw-bold fs-6 text-gray-800">{{ $informasi['waktu_mulai'] }} - {{ $informasi['waktu_selesai'] }}</span>                
-        </div>
-        <!--end::Col-->
-    </div>
-    <div class="row mb-7">
-        <!--begin::Label-->
-        <label class="col-lg-4 fw-semibold text-muted">Tempat</label>
-        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">                    
+                            <span class="fw-bold fs-6 text-gray-800">{{ $informasi->nama_rapat }}</span>                
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Tujuan</label>
+                        <!--end::Label-->
 
-        <!--begin::Col-->
-        <div class="col-lg-8">                    
-            <span class="fw-bold fs-6 text-gray-800">{{ $informasi['tempat'] }}</span>                
-        </div>
-        <!--end::Col-->
-    </div>
-    <div class="row mb-7">
-        <!--begin::Label-->
-        <label class="col-lg-4 fw-semibold text-muted">Dress Code</label>
-        <!--end::Label-->
+                        <!--begin::Col-->
+                        <div class="col-lg-8">                    
+                            <span class="fw-bold fs-6 text-gray-800">{{preg_replace('/<\s*p[^>]*>(.*?)<\s*\/\s*p\s*>/', '$1', $informasi->tujuan) }}</span>                
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Catatan</label>
+                        <!--end::Label-->
 
-        <!--begin::Col-->
-        <div class="col-lg-8">                    
-            <span class="fw-bold fs-6 text-gray-800">{{ $informasi['dress_code'] }}</span>                
+                        <!--begin::Col-->
+                        <div class="col-lg-8">                    
+                            <span class="fw-bold fs-6 text-gray-800">{{preg_replace('/<\s*p[^>]*>(.*?)<\s*\/\s*p\s*>/', '$1', $informasi->catatan) }}</span>                
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                    <div class="row mb-7">
+                        <!--begin::Label-->
+                        <label class="col-lg-4 fw-semibold text-muted">Dress Code</label>
+                        <!--end::Label-->
+
+                        <!--begin::Col-->
+                        <div class="col-lg-8">                    
+                            <span class="fw-bold fs-6 text-gray-800">{{ $informasi->dress_code }}</span>                
+                        </div>
+                        <!--end::Col-->
+                    </div>
+                </div>
+            </div>
         </div>
-        <!--end::Col-->
     </div>
-    <!--end::Table container-->
+                    <!--end::Table container-->
 </div>

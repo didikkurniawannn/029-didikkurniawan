@@ -207,8 +207,9 @@
                                                                 @if($events->has($day->format('Y-m-d')))
                                                                 <div class="fc-daygrid-day-events">
                                                                     @foreach ($events[$day->format('Y-m-d')] as $event)
-                                                                    <div class="fc-daygrid-event-harness" style="margin-top: 0px;"><a
-                                                                            class="fc-daygrid-event fc-daygrid-block-event fc-h-event fc-event fc-event-draggable fc-event-resizable fc-event-start fc-event-end fc-event-past border-success bg-success text-inverse-success"
+                                                                    <div class="fc-daygrid-event-harness" style="margin-top: 0px;">
+                                                                        <a wire:click="$dispatch('openModal', { component: 'frontend.modal.detail-kalender', arguments: { id: {{ $event->id }} }})"
+                                                                        class="fc-daygrid-event fc-daygrid-block-event fc-h-event fc-event fc-event-draggable fc-event-resizable fc-event-start fc-event-end fc-event-past border-success bg-success text-inverse-success"
                                                                             tabindex="0">
                                                                             <div class="fc-event-main">
                                                                                 <div class="fc-event-main-frame">
@@ -266,7 +267,7 @@
     .fc-daygrid-day-frame {
         height: 100px; /* Tinggi yang diinginkan untuk setiap sel */
     }
-    Gaya untuk tablet
+    /* Gaya untuk tablet */
     @media (max-width: 768px) {
         .fc-daygrid-day-frame {
             width: 80px;
