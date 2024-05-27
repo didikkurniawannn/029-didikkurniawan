@@ -20,7 +20,7 @@ class Create extends Component
             $model = Model::where('finish',0)->where('created_id',Auth::user()->id)->first();
         // }
 
-        $rapat = Model::where('finish',0)->where('step','!=',4)->where('created_id',Auth::user()->id)->first();
+        $rapat = Model::where('finish',0)->where('created_id',Auth::user()->id)->first();
         if(empty($rapat->step) || Auth::user()->role_id==1){
             return redirect()->route('rapat.form.informasi');
         }else{

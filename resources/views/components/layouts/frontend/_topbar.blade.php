@@ -52,39 +52,19 @@
                 menu-bullet-gray-500 
                 my-5 my-lg-0 align-items-stretch fw-semibold px-2 px-lg-0
             " id="kt_app_header_menu" data-kt-menu="true">
-                    <a href="{{ route('home') }}" data-kt-menu-placement="bottom-start" data-kt-menu-offset="-50,0"
-                        class="menu-item {{ Request::route()->getName() == 'home' ? 'here show' : '' }} menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
+                    @foreach(menuUtama() as $menu)
+                    <a href="{{ route($menu->url) }}" data-kt-menu-placement="bottom-start" data-kt-menu-offset="-50,0"
+                        class="menu-item {{ Request::route()->getName() == $menu->url ? 'here show' : '' }} menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
                         <!--begin:Menu link-->
                         <span class="menu-link">
-                            <span class="menu-title">Home</span>
+                            <span class="menu-title">{{$menu->menu}}</span>
                             <span class="menu-arrow d-lg-none"></span>
                         </span>
                         <!--end:Menu link-->
                     </a>
+                    @endforeach
                     <!--end:Menu item-->
-                    <!--begin:Menu item-->
-                    <a href="{{ route('my-ticket') }}" data-kt-menu-placement="bottom-start" data-kt-menu-offset="-100,0"
-                        class="menu-item {{ Request::route()->getName() == 'my-ticket' ? 'here show' : '' }} menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
-                        <!--begin:Menu link-->
-                        <span class="menu-link">
-                            <span class="menu-title">My Ticket</span>
-                            <span class="menu-arrow d-lg-none"></span>
-                        </span>
-                        <!--end:Menu link-->
-                    </a>
-                    <!--end:Menu item-->
-
-                    <!--begin:Menu item-->
-                    <a href="{{ route('contact-us') }}" data-kt-menu-placement="bottom-start" data-kt-menu-offset="-100,0"
-                        class="menu-item {{ Request::route()->getName() == 'contact-us' ? 'here show' : '' }} menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
-                        <!--begin:Menu link-->
-                        <span class="menu-link">
-                            <span class="menu-title">Contact Us</span>
-                            <span class="menu-arrow d-lg-none"></span>
-                        </span>
-                        <!--end:Menu link-->
-                    </a>
-                    <!--end:Menu item-->
+                    
                 </div>
                 <!--end::Menu-->
             </div>

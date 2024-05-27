@@ -109,13 +109,11 @@
                                             @endif
                                             
                                             @if(Auth::user()->role_id != 1)
-                                                @if($item->status == 1)
-                                                    <a href="{{route('rapat.detail',[Crypt::encrypt($item->id)])}}"
-                                                            class="btn btn-sm btn-icon btn-light-primary btn-active-light-default me-1"
-                                                            title="Lihat">
-                                                            <i class="bi bi-eye"></i>
-                                                    </a>
-                                                @endif
+                                            <a href="{{route('rapat.detail',[Crypt::encrypt($item->id)])}}"
+                                                class="btn btn-sm btn-icon btn-light-primary btn-active-light-default me-1"
+                                                title="Lihat">
+                                                <i class="bi bi-eye"></i>
+                                            </a>
                                             <button wire:click="deleteRequest({{ $item->id }})"
                                                 class="btn btn-sm btn-icon btn-light-danger btn-active-light-default me-1"
                                                 title="Hapus">

@@ -17,6 +17,7 @@
             window.top.location.replace(window.self.location.href);
         }
     </script>
+    @livewireStyles
     @stack('css')
 </head>
 <!--end::Head-->
@@ -64,7 +65,7 @@
             <!--begin::Wrapper-->
             <div class="app-wrapper  flex-column flex-row-fluid " id="kt_app_wrapper">
 
-            @yield('content')
+            {{$slot}}
 
 
             </div>

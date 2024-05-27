@@ -9,6 +9,9 @@ $data = [
 ];
 
 Route::group(['middleware' => ['auth','verified','web'],'prefix' => '', 'as' => '', 'before' => 'csrf'], function () {
+    
+    Route::get('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'index'])->name('logout');
+    Route::get('/autologin/{id}', [App\Http\Controllers\Auth\AutoLoginController::class, 'autologin'])->name('autologin');
     Route::prefix('dashboard')->group(function () {
         Route::get('/',App\Livewire\Dashboard::class)->name('dashboard');
     });
@@ -38,9 +41,10 @@ Route::group(['middleware' => ['auth','verified','web'],'prefix' => '', 'as' => 
 });
 
 Route::get('/login', [App\Http\Controllers\Auth\LoginController::class, 'index'])->name('login');
-Route::get('/logout', [App\Http\Controllers\Auth\LogoutController::class, 'index'])->name('logout');
 Route::post('/signin', [App\Http\Controllers\Auth\AuthController::class, 'signin'])->name('signin');
-Route::get('/autologin/{id}', [App\Http\Controllers\Auth\AutoLoginController::class, 'autologin'])->name('autologin');
+
+Route::get('/',App\Livewire\Frontend\Home::class)->name('home');
+
 
 Route::get('/register', function() use ($data){
     return view('auth.register', ['data' => $data]);
@@ -50,11 +54,6 @@ Route::get('/forgot', function() use ($data){
     return view('auth.forgot', ['data' => $data]);
 })->name('forgot');
 
-
-
-Route::get('/', function() use ($data){
-    return view('frontend.home', ['data' => $data]);
-})->name('home');
 
 Route::get('/my-ticket', function() use ($data){
     $ticket = [

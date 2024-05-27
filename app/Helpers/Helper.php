@@ -60,8 +60,9 @@ function menu($role)
 
 function menuUtama()
 {
-    $menu = RefMenu::where([['parent_id', '=', 0], ['is_active', '=', 1], ['is_delete', '=', 0]])
-    ->where('jenis_menu', 'Front')
+    $menu = RefMenu::where([['parent_id', '=', 0], ['is_active', '=', 1]])
+    ->where('jenis_menu', 'Frontend')
+    ->orderBy('posisi', 'asc')
     ->get();
     
     return $menu;
@@ -71,7 +72,7 @@ function menuUtama()
 function menuChildUtama($parent)
 {
     $child = RefMenu::where([['parent_id', '=', $parent], ['is_active', '=', 1], ['is_delete', '=', 0]])
-    ->where('jenis_menu', 'Front')
+    ->where('jenis_menu', 'Frontend')
     ->get();
     return $child;
 }
