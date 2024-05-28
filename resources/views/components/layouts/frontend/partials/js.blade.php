@@ -45,3 +45,4 @@
 
 @livewire('wire-elements-modal')
 @stack('js')
+<x-livewire-alert::scripts />

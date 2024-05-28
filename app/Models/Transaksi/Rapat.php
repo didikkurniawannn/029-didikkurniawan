@@ -24,11 +24,6 @@ class Rapat extends Model
     protected static $logOnlyDirty = true;
     protected static $logFillable = true;
 
-    public function getDescriptionForEvent(string $eventName): string
-    {
-        return $this->nama . " {$eventName} Oleh: " . Auth::user()->nama;
-    }
-
     public function user()
     {
         return $this->belongsTo(User::class,'created_id');

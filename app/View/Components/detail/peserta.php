@@ -5,6 +5,7 @@ namespace App\View\Components\detail;
 use Closure;
 use Illuminate\Contracts\View\View;
 use App\Models\Transaksi\Rapat;
+use App\Models\Transaksi\Kehadiran;
 use Illuminate\View\Component;
 
 class peserta extends Component
@@ -15,6 +16,7 @@ class peserta extends Component
     public $data_rapat;
     public $idRapat;
     public $peserta_id;
+    public $kehadiran;
     public $peserta = [];
 
     public $id;
@@ -23,6 +25,7 @@ class peserta extends Component
     {
         // $this->id = $id;
         $data = Rapat::where('id', $id)->first();
+        $this->kehadiran = Kehadiran::where('rapat_id',$id)->get();
         $this->data_rapat = $data;
         $this->peserta_id = json_decode($data->peserta_id);
         $this->peserta = []; // Pastikan array ini sudah dideklarasikan
@@ -39,6 +42,10 @@ class peserta extends Component
      */
     public function render(): View|Closure|string
     {
-        return view('components.detail.daftar-peserta',['informasi'=>$this->data_rapat, 'peserta' => $this->peserta]);
+        return view('components.detail.daftar-peserta',[
+            'informasi'=>$this->data_rapat, 
+            'peserta' => $this->peserta, 
+            'kehadiran' => $this->kehadiran
+        ]);
     }
 }

@@ -444,4 +444,13 @@ function statusRapat($status){
     return $html;
 }
 
+function generateTicketNumbers() {
+    $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
+    $ticket = '';
+    for ($j = 0; $j < 7; $j++) {
+        $ticket .= $characters[rand(0, strlen($characters) - 1)];
+    }
+    return $ticket;
+}
+
 

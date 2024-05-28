@@ -94,19 +94,13 @@
                             <!--begin::Toolbar-->
                             <div class="card-toolbar">
                                 <!--begin::Menu-->
-                                <button class="btn btn-primary btn-fixed-height font-weight-bold px-2 px-lg-5 mr-2" aria-haspopup="true" aria-expanded="false">
-                                        <span class="svg-icon svg-icon-lg"><!--begin::Svg Icon | path:/metronic/theme/html/demo5/dist/assets/media/svg/icons/Files/File.svg--><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="24px" height="24px" viewBox="0 0 24 24" version="1.1">
-                                        <title>Stockholm-icons / Files / File</title>
-                                        <desc>Created with Sketch.</desc>
-                                        <defs></defs>
-                                        <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
-                                            <polygon points="0 0 24 0 24 24 0 24"></polygon>
-                                            <path d="M5.85714286,2 L13.7364114,2 C14.0910962,2 14.4343066,2.12568431 14.7051108,2.35473959 L19.4686994,6.3839416 C19.8056532,6.66894833 20,7.08787823 20,7.52920201 L20,20.0833333 C20,21.8738751 19.9795521,22 18.1428571,22 L5.85714286,22 C4.02044787,22 4,21.8738751 4,20.0833333 L4,3.91666667 C4,2.12612489 4.02044787,2 5.85714286,2 Z" fill="#000000" fill-rule="nonzero" opacity="0.3"></path>
-                                            <rect fill="#000000" x="6" y="11" width="9" height="2" rx="1"></rect>
-                                            <rect fill="#000000" x="6" y="15" width="5" height="2" rx="1"></rect>
-                                        </g>
-                                    </svg><!--end::Svg Icon-->
-                                    </span>  
+                                <button wire:click="$dispatch('openModal', { component: 'frontend.modal.konfirmasi', arguments: { id: {{ $data_rapat->id }} }})" 
+                                class="btn btn-primary btn-fixed-height font-weight-bold px-4 px-lg-5 mr-2" 
+                                aria-haspopup="true" aria-expanded="false">
+                                    <i class="ki-duotone ki-plus-circle fs-2x">
+                                    <span class="path1"></span>
+                                    <span class="path2"></span>
+                                    </i>
                                     <span class="d-none d-md-inline">Konfirmasi Kehadiran</span>
                                 </button>
                                 <!--begin::Menu 2-->

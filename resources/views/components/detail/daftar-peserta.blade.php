@@ -21,21 +21,21 @@
                         data-kt-scroll-dependencies="#kt_header, #kt_app_header, #kt_toolbar, #kt_app_toolbar, #kt_footer, #kt_app_footer, #kt_chat_contacts_header"
                         data-kt-scroll-wrappers="#kt_content, #kt_app_content, #kt_chat_contacts_body"
                         data-kt-scroll-offset="5px" style="max-height: 52px;">
-                        <!-- 
+                        @foreach ($kehadiran as $val_kehadiran)
                         <div class="d-flex flex-stack py-4">
                             <div class="d-flex align-items-center">
                                 <div class="ms-5">
-                                    Didik Kurniawan
-                                    <div class="fw-semibold text-muted">Diskominfo</div>
+                                    {{ $val_kehadiran->nama }}
+                                    <div class="fw-semibold text-muted">{{ $val_kehadiran->jabatan }}</div>
                                 </div>
                             </div>
                             <div class="d-flex flex-column align-items-end ms-2">
-                                <span class="text-muted fs-7 mb-1">2h 3m last</span>
+                                <span class="text-muted fs-7 mb-1">{{ tglIndoHari($val_kehadiran->tgl_registrasi) }}</span>
                              </div>
                         </div>
                         <div class="separator separator-dashed d-none"></div>
-                     -->
                       
+                        @endforeach
 
                     </div>
                     <!--end::List-->

@@ -15,16 +15,18 @@ class CreateTRegistrasiTable extends Migration
     {
         Schema::create('t_registrasi', function (Blueprint $table) {
             $table->id();
-            $table->integer('instansi_id');
+            $table->integer('rapat_id');
+            $table->string('instansi', 255)->nullable();
             $table->string('no_registrasi', 255);
-            $table->dateTime('tgl_registrasi');
-            $table->string('nama', 255);
-            $table->string('nip', 255);
-            $table->string('jabatan', 255);
-            $table->string('email', 255);
-            $table->string('no_telp', 255);
-            $table->dateTime('tgl_kehadiran');
-            $table->integer('status_kehadiran');
+            $table->dateTime('tgl_registrasi')->nullable();
+            $table->integer('jenis_peserta')->nullable();
+            $table->string('nama', 255)->nullable();
+            $table->string('nip', 255)->nullable();
+            $table->string('jabatan', 255)->nullable();
+            $table->string('email', 255)->nullable();
+            $table->string('no_telp', 255)->nullable();
+            $table->dateTime('tgl_kehadiran')->nullable();
+            $table->integer('status_kehadiran')->nullable();
             $table->text('catatan')->nullable();
             $table->dateTime('created_at')->nullable();
             $table->dateTime('updated_at')->nullable();

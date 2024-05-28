@@ -1,6 +1,6 @@
-<div class="modal fade show" id="kt_modal_view_event" tabindex="-1" data-bs-focus="false" style="display: block;" aria-modal="true" role="dialog">
+<div class="modal fade show" id="kt_modal_view_event" tabindex="-1" style="display: block;" role="dialog">
     <!--begin::Modal dialog-->
-    <div class="modal-dialog modal-dialog-centered mw-650px">
+    <div class="modal-dialog modal-dialog-centered modal-lg">
         <!--begin::Modal content-->
         <div class="modal-content">
             <!--begin::Modal header-->

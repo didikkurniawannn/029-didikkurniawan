@@ -25,7 +25,7 @@ class Home extends Component
         
         $this->currentMonth = Carbon::now()->month;
         $this->currentYear = Carbon::now()->year;
-        $this->list_rapat   = Model::where('finish',1)->where('status',[1,3])->get();
+        $this->list_rapat   = Model::where('finish',1)->whereIn('status',[1,3])->get();
         $this->date = Carbon::now();
         $this->loadEvents();
         $this->generateCalendarDays($this->date);
@@ -36,6 +36,7 @@ class Home extends Component
                 ->select(DB::raw('date(tanggal_mulai) as event_date'), 't_rapat.*')
                 ->whereMonth('tanggal_mulai', $this->date->month)
                 ->whereYear('tanggal_mulai', $this->date->year)
+                ->whereIn('status',[1,3])
                 ->orderBy('tanggal_mulai', 'asc')
                 ->get()
                 ->groupBy('event_date');
