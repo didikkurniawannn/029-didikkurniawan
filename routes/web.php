@@ -48,6 +48,9 @@ Route::get('detail-rapat/{id}',App\Livewire\Frontend\Detail::class)->name('detai
 Route::get('cetak/{id}',App\Livewire\Frontend\Cetak::class)->name('cetak');
 Route::get('invoice/{id}',App\Livewire\Frontend\Invoice::class)->name('invoice');
 
+Route::get('my-ticket',App\Livewire\Frontend\Ticket::class)->name('my-ticket');
+Route::get('contact-us',App\Livewire\Frontend\Contact::class)->name('contact-us');
+
 
 Route::get('/register', function() use ($data){
     return view('auth.register', ['data' => $data]);
@@ -56,25 +59,6 @@ Route::get('/register', function() use ($data){
 Route::get('/forgot', function() use ($data){
     return view('auth.forgot', ['data' => $data]);
 })->name('forgot');
-
-
-Route::get('/my-ticket', function() use ($data){
-    $ticket = [
-        'no_peserta' => 'E4234RE990',
-        'telp' => '082130314252',
-        'email' => 'didikkurniawannn@gmail.com',
-        'name' => 'Didik Kurniawan',
-        'kegiatan' => 'Rapat Pemerintah Kabupaten Bandung',
-        'tanggal' => '2024-03-01',
-        'jam' => '09:00:00',
-        'lokasi' => 'Gedung Kesehatan Kabupaten Bandung',
-    ];
-    return view('frontend.my-ticket', ['data' => $data, 'ticket' => $ticket]);
-})->name('my-ticket');
-
-Route::get('/contact-us', function() use ($data){
-    return view('frontend.contact-us', ['data' => $data]);
-})->name('contact-us');
 
 
 
