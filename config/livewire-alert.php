@@ -21,7 +21,7 @@ return [
         'showConfirmButton' => true,
         'showCancelButton' => true,
         'cancelButtonText' => 'No',
-        'confirmButtonColor' => '#3085d6',
+        'confirmButtonColor' => '#1f4700',
         'cancelButtonColor' => '#d33'
     ]
 ];

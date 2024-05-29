@@ -49,7 +49,7 @@
                                 </div>
                                 <div class="col-md-9">
                                     <input type="text" class="form-control @error('instansi') is-invalid @enderror" name="instansi"
-                                        wire:model="instansi" id="instansi" maxlength="16">
+                                        wire:model="instansi" id="instansi">
                                     @error('instansi') <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                     @enderror
                                 </div>
@@ -62,7 +62,7 @@
                                 </div>
                                 <div class="col-md-9">
                                     <input type="text" class="form-control @error('nama') is-invalid @enderror" name="nama"
-                                        wire:model="nama" id="nama" maxlength="16">
+                                        wire:model="nama" id="nama">
                                     @error('nama') <span class="invalid-feedback" role="alert">{{ $message }}</span>
                                     @enderror
                                 </div>

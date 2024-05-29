@@ -45,6 +45,8 @@ Route::post('/signin', [App\Http\Controllers\Auth\AuthController::class, 'signin
 
 Route::get('/',App\Livewire\Frontend\Home::class)->name('home');
 Route::get('detail-rapat/{id}',App\Livewire\Frontend\Detail::class)->name('detail-rapat');
+Route::get('cetak/{id}',App\Livewire\Frontend\Cetak::class)->name('cetak');
+Route::get('invoice/{id}',App\Livewire\Frontend\Invoice::class)->name('invoice');
 
 
 Route::get('/register', function() use ($data){

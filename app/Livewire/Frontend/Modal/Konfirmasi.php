@@ -8,6 +8,8 @@ use App\Models\Transaksi\Rapat;
 use Jantinnerezo\LivewireAlert\LivewireAlert;
 use Illuminate\Support\Facades\Auth;
 use App\Models\RefInstansi;
+use Illuminate\Support\Facades\Crypt;
+
 
 class Konfirmasi extends ModalComponent
 {
@@ -31,6 +33,7 @@ class Konfirmasi extends ModalComponent
     public $status_kehadiran;
     public $catatan;
     public $jenis_peserta;
+    public $kehadiran_id;
 
     protected $rules =[
         'rapat_id'  => 'required',
@@ -60,6 +63,17 @@ class Konfirmasi extends ModalComponent
 
     public function store(){
         // dd(generateTicketNumbers());
+        // $this->kehadiran_id = 2;
+
+        // return $this->alert('info', 'selamat anda berhasil registrasi, kode registrasi '.'123'.' mohon simpan kode tersebut untuk kehadiran', [
+        //     'showDenyButton' => true,
+        //     'denyButtonText' => 'Invoice',
+        //     'showCancelButton' => true,
+        //     'cancelButtonText' => 'Cancel',
+        //     'onDenied' => 'denied',
+        //     'onDismissed' => 'cancelled',
+        //     'timer' => null,
+        // ]);
         $this->validate();
         $model = Model::create(
                 [
@@ -78,11 +92,13 @@ class Konfirmasi extends ModalComponent
             );
         if($model->save()){
             $this->forceClose()->closeModal();
-            return $this->alert('success', 'Berhasil melakukan registrasi', [
-                'position' => 'top',
-                'timer' => 3000,
-                'toast' => true,
-                'timerProgressBar' => true,
+            $this->kehadiran_id = $model->no_registrasi;
+            return $this->alert('info', 'selamat anda berhasil registrasi, kode registrasi '.$model->no_registrasi.' mohon simpan kode tersebut untuk kehadiran', [
+                'showConfirmButton' => true,
+                'confirmButtonText' => 'OK',
+                'onConfirmed' => 'denied',
+                'timer' => null,
+                'toast' => true
             ]);
         }else{
             return $this->alert('error', 'Gagal melakukan registrasi', [
@@ -103,4 +119,22 @@ class Konfirmasi extends ModalComponent
     {
         return false;
     }
+    public function denied() 
+    {
+        return redirect()->route('invoice',[Crypt::encrypt($this->kehadiran_id)]);
+    }
+    public function cancelled() 
+    {
+        $this->forceClose()->closeModal();
+    }
+    public function getListeners()
+    {
+        return [
+            'denied',
+            'dismissed',
+            'confirmed'
+        ];
+    }
+
+    
 }

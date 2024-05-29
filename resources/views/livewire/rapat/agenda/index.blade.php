@@ -151,3 +151,28 @@
         </div>
     </div>    
 </div>
+@push('js')
+    <script>
+        window.addEventListener('swal:deleteRequest', event => {
+            Swal.fire({
+                title: event.detail[0].title,
+                text: event.detail[0].text,
+                icon: "warning",
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#aaa',
+                confirmButtonText: 'Ya'
+            }).then((result) => {
+            if (result.value) {
+                @this.call('deleteSelectedRequest',event.detail[0].id,result.value);
+                Swal.fire({title: 'Data Berhasil tersimpan', icon: 'success'});
+            } else {
+                Swal.fire({
+                title: 'Operasi Dibatalkan',
+                icon: 'success'
+                });
+            }
+            });
+        });
+    </script>
+@endpush

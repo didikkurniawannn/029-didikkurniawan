@@ -77,7 +77,6 @@ class Index extends Component
           'model'=> $rows
         ]);
 
-        dd($rows);
     }
     
     
@@ -93,7 +92,7 @@ class Index extends Component
     public function deleteSelectedRequest($id)
     {
         if(Model::where('id',$id)->delete()){
-            $log = 'Data Komoditas Berhasil di Hapus';
+            $log = 'Data Rapat Berhasil di Hapus';
             setActivity($log);
             $this->alert('success', $log, [
                 'position' => 'top-end',
@@ -101,7 +100,7 @@ class Index extends Component
                 'toast' => true,
             ]);
         }else{
-            $log = 'Data Komoditas Gagal di Hapus';
+            $log = 'Data Rapat Gagal di Hapus';
             $this->alert('error', $log, [
                 'position' => 'top-end',
                 'timer' => 3000,

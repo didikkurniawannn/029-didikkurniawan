@@ -230,7 +230,7 @@ function TglTimeIndo($tgl)
     $bulan = Bulan($tgl);
     $tgl = $dt->isoFormat('D');
     $tahun = $dt->isoFormat('YYYY');
-    return $hari . ', ' . $tgl . ' ' . $bulan . ' ' . $tahun .  ' - ' . $dt->format('H:i');;
+    return $hari . ', ' . $tgl . ' ' . $bulan . ' ' . $tahun .  ' - ' . $dt->format('H:i'). ' WIB';
 }
 
 
