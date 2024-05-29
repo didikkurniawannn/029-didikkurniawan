@@ -19,6 +19,7 @@ class Index extends Component
     
     public $perpage = 10;
     public $role_list;
+    public $nama_rapat;
     
     public $sortColoumName = "created_at";
     public $sortDirection = "desc";
@@ -53,9 +54,9 @@ class Index extends Component
     public function render()
     {
         $query = Model::query();
-            // $query->when($this->selectPasar != "", function ($q) {
-            //     return $q->where('pasar_id','=',$this->selectPasar);
-            // });
+        $query->when($this->nama_rapat != "", function ($q) {
+            return $q->whereRaw('LOWER(nama_rapat) like ?', ['%'.strtolower($this->nama_rapat).'%']);
+        });
             // $query->when($this->selectTanggal != "", function ($q) {
             //     return $q->where('detail_tgl','=',$this->selectTanggal);
             // });
