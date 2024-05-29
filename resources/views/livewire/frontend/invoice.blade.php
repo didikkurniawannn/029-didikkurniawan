@@ -103,7 +103,7 @@
                                             <!--end::Logo-->
 
                                             <!--begin::Action-->
-                                            <a href="#" class="btn btn-sm btn-success">Cetak Tiket</a>
+                                            <a href="{{ route('cetak',[Crypt::encrypt($kehadiran->id)]) }}" target="_blank" class="btn btn-sm btn-success">Cetak Tiket</a>
                                             <!--end::Action-->
                                         </div>
                                         <!--end::Top-->
