@@ -160,7 +160,7 @@
                             <li class="nav-item mb-3 me-3 me-lg-6" role="presentation">
                                 <!--begin::Link-->
                                 <a class="nav-link btn btn-outline btn-flex btn-color-muted btn-active-color-primary flex-column overflow-hidden w-110px h-85px pt-5 pb-2"
-                                     data-bs-toggle="pill" href="#kt_stats_widget_2_tab_6"
+                                     data-bs-toggle="pill" href="#kt_stats_widget_2_tab_5"
                                     aria-selected="false" role="tab" tabindex="-1">
                                     <!--begin::Icon-->
                                     <div class="nav-icon">
@@ -341,7 +341,7 @@
                             </div>
                             <!--end::Tap pane-->
 
-                            @if($data_rapat->finish == 1)
+                            @if($data_rapat->status == 1 || $data_rapat->status == 3)
                             <!--begin::Tap pane-->
                             <div class="tab-pane fade" id="kt_stats_widget_2_tab_5" role="tabpanel">
                                 <div class="card card-flush pt-3 mb-5 mb-xl-10">
@@ -362,7 +362,7 @@
 
                                     <!--begin::Card body-->
                                     <div class="card-body pt-3">
-                                         @livewire('Rapat.Agenda.Detail.Informasi',[Crypt::encrypt($this->idRapat)])
+                                         @livewire('Rapat.Agenda.Detail.Reservasi',[Crypt::encrypt($this->idRapat)])
                                     </div>
                                     <!--end::Card body-->
                                 </div>
