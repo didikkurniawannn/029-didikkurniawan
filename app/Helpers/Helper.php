@@ -5,6 +5,7 @@ use App\Models\RefAksesMenu;
 use App\Models\RefInstansi;
 use App\Models\User;
 use App\Models\Transaksi\Rapat;
+use App\Models\Transaksi\Kehadiran;
 use App\Models\Activity;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -451,6 +452,27 @@ function generateTicketNumbers() {
         $ticket .= $characters[rand(0, strlen($characters) - 1)];
     }
     return $ticket;
+}
+
+
+function getDropdown($idRapat,$type){
+    if($type == 'Terdaftar'){
+        return Kehadiran::where('rapat_id',$idRapat)->get();
+    }else if($type == 'Hadir'){
+        return Kehadiran::where('rapat_id',$idRapat)->whereNotNull('status_kehadiran')->get();
+    }
+}
+
+function jmlDropdown($idRapat,$type){
+    if($type == 'Terdaftar'){
+    return Kehadiran::where('rapat_id',$idRapat)
+            ->count();
+    }else if($type == 'Hadir'){
+    return Kehadiran::where('rapat_id',$idRapat)
+            ->whereNotNull('status_kehadiran')
+            ->count();
+    }
+
 }
 
 

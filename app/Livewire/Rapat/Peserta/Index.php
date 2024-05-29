@@ -1,6 +1,7 @@
 <?php
 
-namespace App\Livewire\Rapat\Agenda;
+namespace App\Livewire\Rapat\Peserta;
+
 use Livewire\Component;
 use App\Models\Transaksi\Rapat as Model;
 use Livewire\WithPagination;
@@ -25,16 +26,6 @@ class Index extends Component
     public $sortDirection = "desc";
     protected $queryString = ['search'];
 
-    public function mount()
-    {
-        // if(Auth::user()->role_id == 5){
-        //     $this->listPasar = RefPasar::orderBy('namapasar','asc')->where('id',Auth::user()->pasar_id)->get();
-        // }else{
-        //     $this->listPasar = RefPasar::orderBy('namapasar','asc')->get();
-        // }
-        // $this->selectTanggal = date('Y-m-d');
-    }
-    
     public function sortBy($coloumName)
     {
         if($this->sortColoumName === $coloumName){
@@ -57,9 +48,7 @@ class Index extends Component
         $query->when($this->nama_rapat != "", function ($q) {
             return $q->whereRaw('LOWER(nama_rapat) like ?', ['%'.strtolower($this->nama_rapat).'%']);
         });
-            // $query->when($this->selectTanggal != "", function ($q) {
-            //     return $q->where('detail_tgl','=',$this->selectTanggal);
-            // });
+        
         if(Auth::user()->role_id == 2){
             $rows = $query->where('created_id',Auth::user()->id)->where('is_delete','!=', 1)
             ->orderBy($this->sortColoumName,$this->sortDirection)
@@ -68,46 +57,14 @@ class Index extends Component
             $rows = $query->where('is_delete','!=', 1)->orderBy($this->sortColoumName,$this->sortDirection)
             ->paginate($this->perpage);
         }
-        // dd($rows);
 
         if ($rows[0]!=null) {
             $this->firstId = $rows[0]->id;
         }
         
-        return view('livewire.rapat.agenda.index', [
+        return view('livewire.rapat.peserta.index', [
           'model'=> $rows
         ]);
 
-    }
-    
-    
-    public function deleteRequest($id)
-    {
-        $this->dispatch("swal:deleteRequest", [
-            'type' => 'warning',
-            'title' =>'Apa anda yakin ?',
-            'text' =>'Setelah memilih YA maka data akan Dihapus',
-            'id'=>$id
-        ]);
-    }
-    public function deleteSelectedRequest($id)
-    {
-        if(Model::where('id',$id)->delete()){
-            $log = 'Data Rapat Berhasil di Hapus';
-            setActivity($log);
-            $this->alert('success', $log, [
-                'position' => 'top-end',
-                'timer' => 3000,
-                'toast' => true,
-            ]);
-        }else{
-            $log = 'Data Rapat Gagal di Hapus';
-            $this->alert('error', $log, [
-                'position' => 'top-end',
-                'timer' => 3000,
-                'toast' => true,
-            ]);
-            
-        }
     }
 }

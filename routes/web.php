@@ -37,6 +37,10 @@ Route::group(['middleware' => ['auth','verified','web'],'prefix' => '', 'as' => 
         Route::get('form/peserta/{id}',App\Livewire\Rapat\Agenda\Form\Peserta::class)->name('rapat.form.peserta');
         Route::get('detail/{id}',App\Livewire\Rapat\Agenda\Detail::class)->name('rapat.detail');
     });
+
+    Route::prefix('peserta')->group(function(){
+        Route::get('/',App\Livewire\Rapat\Peserta\Index::class)->name('peserta');
+    });
     
 });
 

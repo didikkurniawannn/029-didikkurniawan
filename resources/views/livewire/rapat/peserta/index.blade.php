@@ -1,9 +1,9 @@
 <div>
     @section('title')
-    Daftar Rapat
+    Peserta Rapat
     @stop
     @section('menu')
-    Rapat > <b>Daftar Rapat</b>
+    Rapat > <b>Peserta</b>
     @stop
     <div class="row g-5 g-xl-8">
         <div class="col-lg-12 col-xxl-12">
@@ -11,7 +11,7 @@
                 <!--begin::Header-->
                 <div class="card-header border-0 pt-5">
                     <h3 class="card-title align-items-start flex-column">
-                        <span class="card-label fw-bold fs-3 mb-1">Daftar Rapat</span>
+                        <span class="card-label fw-bold fs-3 mb-1">Daftar Peserta</span>
                     </h3>
                     <div class="card-toolbar" data-bs-toggle="tooltip" data-bs-placement="top" data-bs-trigger="hover"
                         data-bs-original-title="Click to add a user" data-kt-initialized="1">
@@ -62,9 +62,9 @@
                                     </th>
                                     <th>Agenda</th>
                                     <th>Tanggal</th>
-                                    <th>Jam</th>
-                                    <th>Berkas</th>
-                                    <th>Verifikasi</th>
+                                    <th>Reservasi</th>
+                                    <th>Kehadiran</th>
+                                    <th>Status</th>
                                     <th>Action</th>
                                 </tr>
                             </thead>
@@ -79,49 +79,27 @@
                                     </td>
                                     <td>
                                         {{ $item->tanggal_mulai == $item->tanggal_selesai ? tglIndo($item->tanggal_mulai).' - Selesai' : tglIndo($item->tanggal_mulai) ." - ". tglIndo($item->tanggal_selesai) }}
-                                    </td>
-                                    <td>
+                                        <br>
                                         {{ $item->jam_mulai == $item->jam_selesai ? waktuIndo($item->jam_mulai) .' - Selesai' : waktuIndo($item->jam_mulai) ." - ". waktuIndo($item->jam_selesai) }}
                                     </td>
                                     <td>
-                                        {!! statusBerkas($item->id) !!}
+                                        @include('livewire.partials.dropdown', ['item' => $item, 'type' => 'Terdaftar'])
                                     </td>
                                     <td>
+                                        @include('livewire.partials.dropdown', ['item' => $item, 'type' => 'Hadir'])
+                                    </td>
+                                    <td>
+                                        {!! statusBerkas($item->id) !!}
+                                        <br>
                                         {!! statusRapat($item->status) !!}
                                     </td>
                                     <td>
                                         <div class="btn-list">
-                                            
-                                            
-                                            @if(Auth::user()->role_id == 1)
-                                                @if($item->status == 0 && $item->finish == 1 && $item->step == 4)
-                                                <a href="{{route('rapat.detail',[Crypt::encrypt($item->id)])}}"
-                                                    class="btn btn-sm btn-icon btn-light-success btn-active-light-default me-1"
-                                                    title="Verifikasi">
-                                                    <i class="bi bi-check-circle-fill"></i>
-                                                </a>
-                                                @else
-                                                <a href="{{route('rapat.detail',[Crypt::encrypt($item->id)])}}"
-                                                        class="btn btn-sm btn-icon btn-light-primary btn-active-light-default me-1"
-                                                        title="Lihat">
-                                                        <i class="bi bi-eye"></i>
-                                                </a>
-
-                                                @endif
-                                            @endif
-                                            
-                                            @if(Auth::user()->role_id != 1)
                                             <a href="{{route('rapat.detail',[Crypt::encrypt($item->id)])}}"
                                                 class="btn btn-sm btn-icon btn-light-primary btn-active-light-default me-1"
                                                 title="Lihat">
                                                 <i class="bi bi-eye"></i>
                                             </a>
-                                            <button wire:click="deleteRequest({{ $item->id }})"
-                                                class="btn btn-sm btn-icon btn-light-danger btn-active-light-default me-1"
-                                                title="Hapus">
-                                                <i class="bi bi-trash"></i>
-                                            </button>
-                                            @endif
                                         </div>
                                     </td>
                                 </tr>
@@ -153,28 +131,3 @@
         </div>
     </div>    
 </div>
-@push('js')
-    <script>
-        window.addEventListener('swal:deleteRequest', event => {
-            Swal.fire({
-                title: event.detail[0].title,
-                text: event.detail[0].text,
-                icon: "warning",
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#aaa',
-                confirmButtonText: 'Ya'
-            }).then((result) => {
-            if (result.value) {
-                @this.call('deleteSelectedRequest',event.detail[0].id,result.value);
-                Swal.fire({title: 'Data Berhasil tersimpan', icon: 'success'});
-            } else {
-                Swal.fire({
-                title: 'Operasi Dibatalkan',
-                icon: 'success'
-                });
-            }
-            });
-        });
-    </script>
-@endpush
