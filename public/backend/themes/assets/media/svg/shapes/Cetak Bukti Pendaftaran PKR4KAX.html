@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<!-- saved from url=(0235)http://management_event.test/cetak/eyJpdiI6Ild1S1ZzMTZ4V0ZnbTJFVDNuTGFGU0E9PSIsInZhbHVlIjoiRmJNNEhSbDRMOVA0cGd6dkYwejhLUT09IiwibWFjIjoiNGFmYjM3NGI4NjFiNmUwOWIyZjdjMzU2YzJmZjIyMjQ4OTc1YTRkNGMzODA2NTYyZGZhNGQxY2IyMDZjMDRmMCIsInRhZyI6IiJ9 -->
+<html lang="id" class="k-webkit k-webkit123"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <meta name="csrf-token" content="Y6CiiDWIanLDCJmpIebXcTr4pYr6iVMciPFZrzHC">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <link rel="shortcut icon" href="http://management_event.test/storage/logo/http://management_event.test/storage">
+  <title>  Cetak Bukti Pendaftaran PKR4KAX
+  </title>
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+
+	<!-- Livewire Styles --><style>[wire\:loading][wire\:loading], [wire\:loading\.delay][wire\:loading\.delay], [wire\:loading\.inline-block][wire\:loading\.inline-block], [wire\:loading\.inline][wire\:loading\.inline], [wire\:loading\.block][wire\:loading\.block], [wire\:loading\.flex][wire\:loading\.flex], [wire\:loading\.table][wire\:loading\.table], [wire\:loading\.grid][wire\:loading\.grid], [wire\:loading\.inline-flex][wire\:loading\.inline-flex] {display: none;}[wire\:loading\.delay\.none][wire\:loading\.delay\.none], [wire\:loading\.delay\.shortest][wire\:loading\.delay\.shortest], [wire\:loading\.delay\.shorter][wire\:loading\.delay\.shorter], [wire\:loading\.delay\.short][wire\:loading\.delay\.short], [wire\:loading\.delay\.default][wire\:loading\.delay\.default], [wire\:loading\.delay\.long][wire\:loading\.delay\.long], [wire\:loading\.delay\.longer][wire\:loading\.delay\.longer], [wire\:loading\.delay\.longest][wire\:loading\.delay\.longest] {display: none;}[wire\:offline][wire\:offline] {display: none;}[wire\:dirty]:not(textarea):not(input):not(select) {display: none;}:root {--livewire-progress-bar-color: #0d9647;}[x-cloak] {display: none !important;}</style>
+	<style>
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@400;700&display=swap");
+body,
+p,
+h1 {
+  margin: 0;
+  padding: 0;
+  font-family: "Open Sans", sans-serif;
+}
+
+.container {
+  background: #e0e2e8;
+  position: relative;
+  width: 100%;
+  height: 100vh;
+}
+.container .ticket {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+.container .basic {
+  display: none;
+}
+
+.airline {
+  display: block;
+  height: 610px;
+  width: 270px;
+  box-shadow: 5px 5px 30px rgba(0, 0, 0, 0.3);
+  border-radius: 25px;
+  z-index: 3;
+}
+.airline .top {
+  height: 220px;
+  background: #ffcc05;
+  border-top-right-radius: 25px;
+  border-top-left-radius: 25px;
+}
+.airline .top h1 {
+  text-transform: uppercase;
+  font-size: 12px;
+  letter-spacing: 2;
+  text-align: center;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.airline .bottom {
+  height: 391px;
+  background: #fff;
+  border-bottom-right-radius: 25px;
+  border-bottom-left-radius: 25px;
+}
+
+.top .big {
+  position: absolute;
+  top: 100px;
+  font-size: 60px;
+  font-weight: 700;
+  line-height: 0.8;
+}
+.top .big .from {
+  color: #ffcc05;
+  text-shadow: -1px 0 #000, 0 3px #000, 3px 0 #000, 0 -1px #000;
+}
+.top .big .to {
+  position: absolute;
+  left: 32px;
+  font-size: 35px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+}
+.top .big .to i {
+  margin-top: 5px;
+  margin-right: 10px;
+  font-size: 15px;
+}
+.top--side {
+  position: absolute;
+  right: 35px;
+  top: 110px;
+  text-align: right;
+}
+.top--side i {
+  font-size: 25px;
+  margin-bottom: 18px;
+}
+.top--side p {
+  font-size: 10px;
+  font-weight: 700;
+}
+.top--side p + p {
+  margin-bottom: 8px;
+}
+
+.bottom p {
+  display: flex;
+  flex-direction: column;
+  font-size: 13px;
+  font-weight: 700;
+}
+.bottom p span {
+  font-weight: 400;
+  font-size: 11px;
+  color: #6c6c6c;
+}
+.bottom .column {
+  margin: 0 auto;
+  width: 80%;
+  padding: 2rem 0;
+}
+.bottom .row {
+  display: flex;
+  justify-content: space-between;
+}
+.bottom .row--right {
+  text-align: right;
+}
+.bottom .row--center {
+  text-align: center;
+}
+.bottom .row-2 {
+  margin: 30px 0 60px 0;
+  position: relative;
+}
+.bottom .row-2::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  bottom: -30px;
+  left: 0;
+  background: #000;
+  height: 1px;
+}
+
+.bottom .bar--code {
+  height: 50px;
+  width: 80%;
+  margin: 0 auto;
+  position: relative;
+}
+.bottom .bar--code::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 100%;
+  background: #000;
+  top: 0;
+  left: 0;
+  box-shadow: 10px 0 #000, 30px 0 #000, 40px 0 #000, 67px 0 #000, 90px 0 #000, 100px 0 #000, 180px 0 #000, 165px 0 #000, 200px 0 #000, 210px 0 #000, 135px 0 #000, 120px 0 #000;
+}
+.bottom .bar--code::before {
+  content: "";
+  position: absolute;
+  width: 3px;
+  height: 100%;
+  background: #000;
+  top: 0;
+  left: 11px;
+  box-shadow: 12px 0 #000, -4px 0 #000, 45px 0 #000, 65px 0 #000, 72px 0 #000, 78px 0 #000, 97px 0 #000, 150px 0 #000, 165px 0 #000, 180px 0 #000, 135px 0 #000, 120px 0 #000;
+}
+
+.barcode{
+    display: flex;
+    justify-content: center;
+}
+.info {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  font-size: 14px;
+  text-align: center;
+  z-index: 1;
+}
+.info a {
+  text-decoration: none;
+  color: #000;
+  background: #ffcc05;
+}
+</style>
+<style>/* Make clicks pass-through */
+
+    #nprogress {
+      pointer-events: none;
+    }
+
+    #nprogress .bar {
+      background: var(--livewire-progress-bar-color, #29d);
+
+      position: fixed;
+      z-index: 1031;
+      top: 0;
+      left: 0;
+
+      width: 100%;
+      height: 2px;
+    }
+
+    /* Fancy blur effect */
+    #nprogress .peg {
+      display: block;
+      position: absolute;
+      right: 0px;
+      width: 100px;
+      height: 100%;
+      box-shadow: 0 0 10px var(--livewire-progress-bar-color, #29d), 0 0 5px var(--livewire-progress-bar-color, #29d);
+      opacity: 1.0;
+
+      -webkit-transform: rotate(3deg) translate(0px, -4px);
+          -ms-transform: rotate(3deg) translate(0px, -4px);
+              transform: rotate(3deg) translate(0px, -4px);
+    }
+
+    /* Remove these to get rid of the spinner */
+    #nprogress .spinner {
+      display: block;
+      position: fixed;
+      z-index: 1031;
+      top: 15px;
+      right: 15px;
+    }
+
+    #nprogress .spinner-icon {
+      width: 18px;
+      height: 18px;
+      box-sizing: border-box;
+
+      border: solid 2px transparent;
+      border-top-color: var(--livewire-progress-bar-color, #29d);
+      border-left-color: var(--livewire-progress-bar-color, #29d);
+      border-radius: 50%;
+
+      -webkit-animation: nprogress-spinner 400ms linear infinite;
+              animation: nprogress-spinner 400ms linear infinite;
+    }
+
+    .nprogress-custom-parent {
+      overflow: hidden;
+      position: relative;
+    }
+
+    .nprogress-custom-parent #nprogress .spinner,
+    .nprogress-custom-parent #nprogress .bar {
+      position: absolute;
+    }
+
+    @-webkit-keyframes nprogress-spinner {
+      0%   { -webkit-transform: rotate(0deg); }
+      100% { -webkit-transform: rotate(360deg); }
+    }
+    @keyframes nprogress-spinner {
+      0%   { transform: rotate(0deg); }
+      100% { transform: rotate(360deg); }
+    }
+    </style><style type="text/css" id="operaUserStyle"></style></head>
+
+<body>
+<div id="myCanvas">
+  <!-- <div id="myCanvas" class="watermarked" data-watermark="Bapenda - Kab Bandung" style="width: 650px;margin:0px auto"> -->
+    <div wire:snapshot="{&quot;data&quot;:{&quot;idRapat&quot;:4,&quot;kehadiran&quot;:[null,{&quot;class&quot;:&quot;App\\Models\\Transaksi\\Kehadiran&quot;,&quot;key&quot;:4,&quot;s&quot;:&quot;mdl&quot;}],&quot;rapat&quot;:[null,{&quot;class&quot;:&quot;App\\Models\\Transaksi\\Rapat&quot;,&quot;key&quot;:8,&quot;s&quot;:&quot;mdl&quot;}],&quot;jam&quot;:&quot;10.00 WIB -  12.00 WIB&quot;,&quot;tanggal&quot;:&quot;Jum&#39;at, 24 Mei 2024&quot;,&quot;alamat&quot;:&quot;KO. GADING TUTUKA RESIDENCE Desa Panyirapan, Kecamatan Soreang, Kabupaten bandung, Provinsi Jawa barat&quot;},&quot;memo&quot;:{&quot;id&quot;:&quot;dWO9SZNHbz95iucqRDpx&quot;,&quot;name&quot;:&quot;frontend.cetak&quot;,&quot;path&quot;:&quot;cetak\/eyJpdiI6Ild1S1ZzMTZ4V0ZnbTJFVDNuTGFGU0E9PSIsInZhbHVlIjoiRmJNNEhSbDRMOVA0cGd6dkYwejhLUT09IiwibWFjIjoiNGFmYjM3NGI4NjFiNmUwOWIyZjdjMzU2YzJmZjIyMjQ4OTc1YTRkNGMzODA2NTYyZGZhNGQxY2IyMDZjMDRmMCIsInRhZyI6IiJ9&quot;,&quot;method&quot;:&quot;GET&quot;,&quot;children&quot;:[],&quot;scripts&quot;:[],&quot;assets&quot;:[],&quot;errors&quot;:[],&quot;locale&quot;:&quot;id&quot;},&quot;checksum&quot;:&quot;d42e9378927ec10ed8c7bc62992e4a92c5a9d1b6d9c65fa6c90b37a10e8634af&quot;}" wire:effects="[]" wire:id="dWO9SZNHbz95iucqRDpx">
+          <!-- partial:index.partial.html -->
+    <div class="container">
+
+        <div class="ticket basic">
+            <p>Admit One</p>
+        </div>
+
+        <div class="ticket airline">
+            <div class="top">
+                <h1>BUKTI PENDAFTARAN</h1>
+                <div class="big">
+                    <p class="from">MAN</p>
+                    <p class="to"><i class="fas fa-arrow-right"></i> RAPAT</p>
+                </div>
+                <div class="top--side">
+                    <i class="fas fa-plane"></i>
+                    <p>Kabupaten</p>
+                    <p>Bandung</p>
+                </div>
+            </div>
+            <div class="bottom">
+                <div class="column">
+                    <div class="row row-1">
+                        <p><span>Tanggal</span>Jum'at, 24 Mei 2024</p>
+                        
+                    </div>
+                    <div class="row row-2">
+                        <p><span>Waktu</span>10.00 WIB -  12.00 WIB</p>
+                        
+                        
+                    </div>
+                    
+                    <div class="row row-3">
+                        <p><span>Nama</span>Didik2</p>
+                        <p class="row--right"><span>No.Reg</span>PKR4KAX</p>
+                    </div>
+                </div>
+                <div class="barcode">
+                    <img src="./Cetak Bukti Pendaftaran PKR4KAX_files/saved_resource" alt="QR Code">
+                </div>
+            </div>
+
+            <div class="info">
+                <p>lihat detail <a href="http://management_event.test/invoice/eyJpdiI6InpqWjFTcHRiS1hZUitGcStwZUVyWnc9PSIsInZhbHVlIjoidUVzeTRhMHhRQkc4cWM4U0dkbUc5Zz09IiwibWFjIjoiYWNhYWZkODMzZWM5ZmZlZjZjYWUzOTE0MDhjM2E1ZGZhMzdjOTZjMDBiMGVkNjA4YzY4YTk1YTc3MDM1Mjg3NCIsInRhZyI6IiJ9" target="_blank">klik disini</a></p>
+            </div>
+        </div>
+
+
+    </div>
+</div>
+  </div>
+
+<!-- Livewire Scripts -->
+<script>
+    console.warn('Livewire: The published Livewire assets are out of date\n See: https://livewire.laravel.com/docs/installation#publishing-livewires-frontend-assets')
+</script>
+<script src="./Cetak Bukti Pendaftaran PKR4KAX_files/livewire.js" data-csrf="Y6CiiDWIanLDCJmpIebXcTr4pYr6iVMciPFZrzHC" data-update-uri="/livewire/update" data-navigate-once="true"></script>
+
+
+<script src="./Cetak Bukti Pendaftaran PKR4KAX_files/jquery.min.js"></script>
+<script src="./Cetak Bukti Pendaftaran PKR4KAX_files/jszip.min.js"></script>
+<script src="./Cetak Bukti Pendaftaran PKR4KAX_files/kendo.all.min.js"></script>
+
+<script>
+  $(document).ready(function() {
+
+  //   Array.from(document.querySelectorAll('.watermarked')).forEach(function(el) {
+  //     el.dataset.watermark = (el.dataset.watermark + ' ').repeat(1000);
+  //   });
+
+    $(window).load(function() {
+      alert("Klik OK untuk Download Dokumen");
+      ExportPdf();
+    });
+  });
+
+
+
+  function ExportPdf(){
+    kendo.drawing
+    .drawDOM("#myCanvas",
+    {
+      paperSize: "A4",
+      margin: { top: "1cm", left: "1cm", right: "1cm", bottom: "1cm" },
+      scale: 0.8,
+      height: 500,
+    })
+    .then(function(group){
+      kendo.drawing.pdf.saveAs(group, "  Cetak Bukti Pendaftaran PKR4KAX
+  .pdf")
+    });
+  }
+</script>
+
+
+
+
+</body></html>

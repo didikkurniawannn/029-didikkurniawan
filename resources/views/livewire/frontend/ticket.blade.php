@@ -1,5 +1,13 @@
 <div>
-  
+    @section('title')
+    Ticket
+    @stop
+    @section('mainMenu')
+    My Ticket
+    @stop
+    @section('subMenu')
+    My Ticket
+    @stop
 <!--begin::Toolbar-->
 <div id="kt_app_toolbar" class="app-toolbar  py-6 ">
 
@@ -120,7 +128,7 @@
             class="app-footer  d-flex flex-column flex-md-row align-items-center flex-center flex-md-stack py-2 py-lg-4 ">
             <!--begin::Copyright-->
             <div class="text-gray-900 order-2 order-md-1">
-                copyright
+                {{ getApp()->description }}
             </div>
             <!--end::Copyright-->
         </div>

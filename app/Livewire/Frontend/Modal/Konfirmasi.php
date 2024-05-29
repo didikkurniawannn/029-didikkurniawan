@@ -91,7 +91,6 @@ class Konfirmasi extends ModalComponent
                 ]
             );
         if($model->save()){
-            $this->forceClose()->closeModal();
             $this->kehadiran_id = $model->no_registrasi;
             return $this->alert('info', 'selamat anda berhasil registrasi, kode registrasi '.$model->no_registrasi.' mohon simpan kode tersebut untuk kehadiran', [
                 'showConfirmButton' => true,

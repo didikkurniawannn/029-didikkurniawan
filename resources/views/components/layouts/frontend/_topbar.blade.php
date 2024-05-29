@@ -54,7 +54,7 @@
             " id="kt_app_header_menu" data-kt-menu="true">
                     @foreach(menuUtama() as $menu)
                     <a href="{{ route($menu->url) }}" data-kt-menu-placement="bottom-start" data-kt-menu-offset="-50,0"
-                        class="menu-item {{ Request::route()->getName() == $menu->url ? 'here show' : '' }} menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
+                        class="menu-item {{trim($__env->yieldContent('mainMenu')) == $menu->menu ? 'here show' : ''}} menu-here-bg menu-lg-down-accordion me-0 me-lg-2">
                         <!--begin:Menu link-->
                         <span class="menu-link">
                             <span class="menu-title">{{$menu->menu}}</span>

@@ -17,6 +17,7 @@ class Cetak extends Component
     public $jam;
     public $tanggal;
     public $alamat;
+    public $reg;
 
     #[Layout('components.layouts.frontend.print')]
     
@@ -30,7 +31,7 @@ class Cetak extends Component
         $kabupaten          = $this->rapat->toKabupaten ? ', ' . ucfirst(strtolower($this->rapat->toKabupaten->name)) : '';
         $provinsi           = $this->rapat->toProvinsi ? ', Provinsi ' . ucfirst(strtolower($this->rapat->toProvinsi->name)) : '';
         
-
+        $this->reg          = $this->kehadiran->no_registrasi;
         $this->jam          = $this->rapat->jam_mulai == $this->rapat->jam_selesai ? waktuIndo($this->rapat->jam_mulai) .' - Selesai' : waktuIndo($this->rapat->jam_mulai) ." -  ". waktuIndo($this->rapat->jam_selesai)  ;
         $this->tanggal      = $this->rapat->tanggal_mulai == $this->rapat->tanggal_selesai ? tglIndoHari($this->rapat->tanggal_mulai) : tglIndoHari($this->rapat->tanggal_mulai) ." - ". tglIndoHari($this->rapat->tanggal_selesai)  ;
         $this->alamat       = $this->rapat->alamat . $desa . $kecamatan . $kabupaten . $provinsi;

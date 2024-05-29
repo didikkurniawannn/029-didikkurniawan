@@ -6,9 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     @stack('meta')
     <title>@yield('title')</title>
-    @include('components.layouts.frontend.partials.css')
+
+    <meta name="title" property="og:title" content="Management Rapat">
+    <link rel="shortcut icon" href="{!! getAppFavicon() !!}" />
+    <meta name="description" property="og:description" content="-">
+    <meta name="author" property="og:author" content="Diskominfo Kab Bandung">
     <!-- Favicon icon -->
     <link rel="icon" type="image/ico" sizes="16x16" href="{{ Storage::disk('public')->url(getAppFavicon()) }}">
+    @include('components.layouts.frontend.partials.css')
 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700" />
     <script>

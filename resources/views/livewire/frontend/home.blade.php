@@ -1,4 +1,13 @@
 <div>
+    @section('title')
+    Home
+    @stop
+    @section('mainMenu')
+    Home
+    @stop
+    @section('subMenu')
+    Home
+    @stop
     <div id="kt_app_toolbar" class="app-toolbar  py-6 ">
         <!--begin::Toolbar container-->
         <div id="kt_app_toolbar_container" class="app-container  container-xxl d-flex align-items-start ">
@@ -252,7 +261,7 @@
                 class="app-footer  d-flex flex-column flex-md-row align-items-center flex-center flex-md-stack py-2 py-lg-4 ">
                 <!--begin::Copyright-->
                 <div class="text-gray-900 order-2 order-md-1">
-                    copiright
+                    {{ getApp()->description }}
                 </div>
                 <!--end::Copyright-->
             </div>

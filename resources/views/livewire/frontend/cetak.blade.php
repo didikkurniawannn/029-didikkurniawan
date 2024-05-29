@@ -1,10 +1,16 @@
 <div>
-    @section('title', 'Cetak ')
+  @section('title', 'Cetak Bukti Pendaftaran '.$reg)
+  @section('mainMenu')
+  Menu
+  @stop
+  @section('subMenu')
+  Bukti Pendaftaran
+  @stop
     <!-- partial:index.partial.html -->
     <div class="container">
 
         <div class="ticket basic">
-            <p>Admit One</p>
+            <p>Management Rapat</p>
         </div>
 
         <div class="ticket airline">

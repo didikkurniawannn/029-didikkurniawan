@@ -1,4 +1,13 @@
 <div>
+    @section('title')
+    Informasi Pendaftaran
+    @stop
+    @section('mainMenu')
+    Home
+    @stop
+    @section('subMenu')
+    Pendaftaran
+    @stop
     <div id="kt_app_toolbar" class="app-toolbar  py-6 ">
         <!--begin::Toolbar container-->
         <div id="kt_app_toolbar_container" class="app-container  container-xxl d-flex align-items-start ">
@@ -26,7 +35,7 @@
 
                         <!--begin::Item-->
                         <li class="breadcrumb-item text-white fw-bold lh-1">
-                            Invoice </li>
+                            Informasi Pendaftaran </li>
                         <!--end::Item-->
 
                         <!--begin::Item-->
@@ -57,10 +66,10 @@
                         <!--begin::Title-->
                         <h1
                             class="page-heading d-flex text-white fw-bolder fs-2 flex-column justify-content-center my-0">
-                            Invoice
+                            Pendaftaran
                             <!--begin::Description-->
                             <span class="page-desc text-white opacity-50 fs-6 fw-bold pt-4">
-                                information invoice </span>
+                                Information Pendaftaran </span>
                             <!--end::Description-->
                         </h1>
                         <!--end::Title-->
@@ -287,7 +296,7 @@
                     class="app-footer  d-flex flex-column flex-md-row align-items-center flex-center flex-md-stack py-2 py-lg-4 ">
                     <!--begin::Copyright-->
                     <div class="text-gray-900 order-2 order-md-1">
-                        copyright
+                        {{ getApp()->description }}
                     </div>
                     <!--end::Copyright-->
                 </div>

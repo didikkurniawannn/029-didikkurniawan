@@ -34,10 +34,10 @@
   //     el.dataset.watermark = (el.dataset.watermark + ' ').repeat(1000);
   //   });
 
-    $(window).load(function() {
+    // $(window).load(function() {
       alert("Klik OK untuk Download Dokumen");
       ExportPdf();
-    });
+    // });
   });
 
 
@@ -49,7 +49,7 @@
       paperSize: "A4",
       margin: { top: "1cm", left: "1cm", right: "1cm", bottom: "1cm" },
       scale: 0.8,
-      height: 500,
+      height: 600,
     })
     .then(function(group){
       kendo.drawing.pdf.saveAs(group, "@yield('title').pdf")
