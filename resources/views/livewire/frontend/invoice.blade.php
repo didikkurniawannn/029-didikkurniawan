@@ -112,7 +112,12 @@
                                             <!--end::Logo-->
 
                                             <!--begin::Action-->
-                                            <a href="{{ route('cetak',[Crypt::encrypt($kehadiran->id)]) }}" target="_blank" class="btn btn-sm btn-success">Cetak Tiket</a>
+                                            <div class="text-justify-end">
+                                                @if($rapat->tanggal_mulai && !empty($notulensi->tanggal_mulai))
+                                                <a wire:click="setKehadiran({{$kehadiran->id}})" class="btn btn-sm btn-primary">Absen Hadir</a>
+                                                @endif
+                                                <a href="{{ route('cetak',[Crypt::encrypt($kehadiran->id)]) }}" target="_blank" class="btn btn-sm btn-success">Cetak Tiket</a>
+                                            </div>
                                             <!--end::Action-->
                                         </div>
                                         <!--end::Top-->

@@ -42,11 +42,11 @@ class Create extends Component
         $this->jumlah_pendaftar         = Kehadiran::where('rapat_id', $this->idRapat)->count();
         $this->jumlah_hadir             = Kehadiran::where('rapat_id', $this->idRapat)->where('status_kehadiran', 1)->count();
         $this->notulensi                = Notulensi::where('rapat_id',$data->id)->first();
-        $this->rengkuman_diskusi        = $this->notulensi->rengkuman_diskusi ;
-        $this->kesimpulan               = $this->notulensi->kesimpulan ;
-        $this->tindak_lanjut            = $this->notulensi->tindak_lanjut ;
-        $this->documentList             = json_decode($this->notulensi->document);
-        $this->fotoList                 = json_decode($this->notulensi->foto);
+        $this->rengkuman_diskusi        = empty($this->notulensi->rengkuman_diskusi) ? '-' : $this->notulensi->rengkuman_diskusi ;
+        $this->kesimpulan               = empty($this->notulensi->kesimpulan) ? '-' : $this->notulensi->kesimpulan ;
+        $this->tindak_lanjut            = empty($this->notulensi->tindak_lanjut) ? '-' : $this->notulensi->tindak_lanjut ;
+        $this->documentList             = empty($this->notulensi->document) ? '' : json_decode($this->notulensi->document);
+        $this->fotoList                 = empty($this->notulensi->foto) ? '' : json_decode($this->notulensi->foto);
 
     }
 
