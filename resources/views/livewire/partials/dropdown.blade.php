@@ -3,7 +3,7 @@
         data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
         data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end"
         id="kt_menu_item_{{ strtolower($type) }}">
-        <span class="badge py-3 px-4 fs-7 badge-light-{{ $type === 'Terdaftar' ? 'warning' : 'success' }}">{{ jmlDropdown($item->id, $type) }} Orang</span>
+        <span class="badge badge-light-{{ $type === 'Terdaftar' ? 'warning' : 'success' }}">{{ jmlDropdown($item->id, $type) }} Orang</span>
     </div>
     <div class="menu menu-sub menu-sub-dropdown menu-column w-350px w-lg-375px"
         data-kt-menu="true" id="kt_menu_notifications" style="">

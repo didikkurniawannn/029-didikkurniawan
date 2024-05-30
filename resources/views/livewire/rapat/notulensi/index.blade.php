@@ -101,7 +101,7 @@
                                                 title="Kehadiran">
                                                 <i class="bi bi-card-checklist"></i>
                                             </a>
-                                            <a href="{{route('rapat.detail',[Crypt::encrypt($item->id)])}}"
+                                            <a href="{{route('notulensi.create',[Crypt::encrypt($item->id)])}}"
                                                 class="btn btn-sm btn-icon btn-light-primary btn-active-light-default me-1"
                                                 title="Notulensi">
                                                 <i class="bi bi-chat-square-text-fill"></i>

@@ -473,6 +473,10 @@ function getDropdown($idRapat,$type){
         return Kehadiran::where('rapat_id',$idRapat)->get();
     }else if($type == 'Hadir'){
         return Kehadiran::where('rapat_id',$idRapat)->where('status_kehadiran','=',1)->get();
+    }else if($type == 'Approve'){
+        return Kehadiran::where('rapat_id',$idRapat)
+                ->where('status_verifikasi','=',1)
+                ->get();
     }
 }
 
@@ -484,6 +488,10 @@ function jmlDropdown($idRapat,$type){
     return Kehadiran::where('rapat_id',$idRapat)
             ->where('status_kehadiran','=',1)
             ->count();
+    }else if($type == 'Approve'){
+        return Kehadiran::where('rapat_id',$idRapat)
+                ->where('status_verifikasi','=',1)
+                ->count();
     }
 
 }
