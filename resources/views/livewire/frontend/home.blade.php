@@ -127,13 +127,10 @@
                                 <div class="card-header border-0 pt-5">
                                     <h3 class="card-title align-items-start flex-column">
                                         <span class="card-label fw-bold text-gray-900">Daftar Agenda Rapat</span>
-
-                                        {{-- <span class="text-muted mt-1 fw-semibold fs-7">Total 424,567 deliveries</span> --}}
                                     </h3>
 
                                     <!--begin::Toolbar-->
                                     <div class="card-toolbar">
-                                        {{-- <a href="#" class="btn btn-sm btn-light">Report Cecnter</a> --}}
                                     </div>
                                     <!--end::Toolbar-->
                                 </div>
@@ -218,7 +215,7 @@
                                                                     @foreach ($events[$day->format('Y-m-d')] as $event)
                                                                     <div class="fc-daygrid-event-harness" style="margin-top: 0px;">
                                                                         <a wire:click="$dispatch('openModal', { component: 'frontend.modal.detail-kalender', arguments: { id: {{ $event->id }} }})"
-                                                                        class="fc-daygrid-event fc-daygrid-block-event fc-h-event fc-event fc-event-draggable fc-event-resizable fc-event-start fc-event-end fc-event-past border-success bg-success text-inverse-success"
+                                                                        class="fc-daygrid-event fc-daygrid-block-event fc-h-event fc-event fc-event-draggable fc-event-resizable fc-event-start fc-event-end fc-event-past {{$event->status == 3 ? 'border-danger bg-danger text-inverse-danger' : 'border-success bg-success text-inverse-success'}}"
                                                                             tabindex="0">
                                                                             <div class="fc-event-main">
                                                                                 <div class="fc-event-main-frame">
@@ -284,7 +281,7 @@
         }
     }
     .fc-day-today {
-        background-color: #1e686b; /* Warna latar belakang untuk hari ini */
+        background-color: #bcbcbca8; /* Warna latar belakang untuk hari ini */
         color: #000; /* Warna teks untuk hari ini */
     }
     /* Gaya untuk mobile */
