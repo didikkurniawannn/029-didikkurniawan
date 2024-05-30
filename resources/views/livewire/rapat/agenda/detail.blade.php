@@ -24,6 +24,13 @@
                             </div>
                         </div>
                         <!--begin::Card title-->
+                        <div class="card-toolbar">
+                            @if($data_rapat->finish == 1 && $data_rapat->status == 3)
+                            <a href="{{route('notulensi.cetak',[Crypt::encrypt($this->idRapat)])}}" target="_blank" class="btn btn-light-danger font-weight-bolder btn-sm">
+                                Cetak
+                            </a>
+                            @endif
+                        </div>
                     </div>
                     <!--end::Card header-->
 

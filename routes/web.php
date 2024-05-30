@@ -46,6 +46,8 @@ Route::group(['middleware' => ['auth','verified','web'],'prefix' => '', 'as' => 
         Route::get('/',App\Livewire\Rapat\Notulensi\Index::class)->name('notulensi');
         Route::get('notulensi/{id}',App\Livewire\Rapat\Notulensi\Create::class)->name('notulensi.create');
         Route::get('presensi/{id}',App\Livewire\Rapat\Notulensi\Presensi::class)->name('notulensi.presensi');
+        Route::get('cetak/{id}',App\Livewire\Rapat\Notulensi\Cetak::class)->name('notulensi.cetak');
+
     });
     
 });
