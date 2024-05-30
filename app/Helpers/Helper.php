@@ -6,6 +6,7 @@ use App\Models\RefInstansi;
 use App\Models\User;
 use App\Models\Transaksi\Rapat;
 use App\Models\Transaksi\Kehadiran;
+use App\Models\Transaksi\Notulensi;
 use App\Models\Activity;
 use Illuminate\Support\Facades\Auth;
 use Carbon\Carbon;
@@ -445,6 +446,18 @@ function statusRapat($status){
     return $html;
 }
 
+function statusNotulensi($rapat_id){
+    $data = Notulensi::where('rapat_id',$rapat_id)->first();
+    $html = '';
+    if (empty($data)){
+        $html .= '<span class="badge badge-light-danger">Belum Ada</span>';
+    }else{
+        $html .= '<span class="badge badge-light-success">Sudah Dilaksanakan</span>';
+    }
+    
+    return $html;
+}
+
 function generateTicketNumbers() {
     $characters = '0123456789ABCDEFGHIJKLMNOPQRSTUVWXYZ';
     $ticket = '';
@@ -459,7 +472,7 @@ function getDropdown($idRapat,$type){
     if($type == 'Terdaftar'){
         return Kehadiran::where('rapat_id',$idRapat)->get();
     }else if($type == 'Hadir'){
-        return Kehadiran::where('rapat_id',$idRapat)->whereNotNull('status_kehadiran')->get();
+        return Kehadiran::where('rapat_id',$idRapat)->where('status_kehadiran','=',1)->get();
     }
 }
 
@@ -469,7 +482,7 @@ function jmlDropdown($idRapat,$type){
             ->count();
     }else if($type == 'Hadir'){
     return Kehadiran::where('rapat_id',$idRapat)
-            ->whereNotNull('status_kehadiran')
+            ->where('status_kehadiran','=',1)
             ->count();
     }
 

@@ -41,6 +41,12 @@ Route::group(['middleware' => ['auth','verified','web'],'prefix' => '', 'as' => 
     Route::prefix('peserta')->group(function(){
         Route::get('/',App\Livewire\Rapat\Peserta\Index::class)->name('peserta');
     });
+
+    Route::prefix('notulensi')->group(function(){
+        Route::get('/',App\Livewire\Rapat\Notulensi\Index::class)->name('notulensi');
+        Route::get('notulensi/{id}',App\Livewire\Rapat\Notulensi\Create::class)->name('notulensi.create');
+        Route::get('presensi/{id}',App\Livewire\Rapat\Notulensi\Presensi::class)->name('notulensi.presensi');
+    });
     
 });
 
