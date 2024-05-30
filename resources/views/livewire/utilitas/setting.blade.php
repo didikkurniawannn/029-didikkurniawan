@@ -210,37 +210,7 @@
                                     @enderror
                                 </div>
                             </div>
-                            <div class="form-group row mb-5">
-                                <label class="col-xl-3 col-lg-3 col-form-label">CDN (Content Delivery Network) URL</label>
-                                <div class="col-lg-9 col-xl-6">
-                                    <input type="text"
-                                        class="form-control form-control-solid @error('storage_url') is-invalid @enderror"
-                                        placeholder="Ex: https://dev-sitalas.jamkrida-jabar.co.id:8443/storage/"
-                                        wire:model="storage_url" />
-                                    @error('storage_url')
-                                    <div class="invalid-feedback form-text text-danger"> {{ $message }} </div>
-                                    @enderror
-                                </div>
-                            </div>
-
-                            <div class="form-group row mb-5">
-                                <label class="col-xl-3 col-lg-3 col-form-label">Aktifkan Single Sign On</label>
-                                <div class="col-lg-9 col-xl-6">
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="single_sign_on" id="single_sign_on_aktif"
-                                            value="1" wire:model="is_sso">
-                                        <label class="form-check-label" for="single_sign_on_aktif">Aktif</label>
-                                    </div>
-                                    <div class="form-check form-check-inline">
-                                        <input class="form-check-input" type="radio" name="single_sign_on"
-                                            id="single_sign_on_nonaktif" value="0" wire:model="is_sso">
-                                        <label class="form-check-label" for="single_sign_on_nonaktif">Nonaktif</label>
-                                    </div>
-                                    @error('single_sign_on_status')
-                                    <div class="invalid-feedback form-text text-danger">{{ $message }}</div>
-                                    @enderror
-                                </div>
-                            </div>
+                           
 
 
                             <div class="card-footer">
